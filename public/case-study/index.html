@@ -1,11 +1,11 @@
 <!doctype html>
-<html lang="fil">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#f5f7fb" />
-    <meta name="description" content="Case study ng Nexora: paano gamitin ang store workspace, design system, at user flow." />
-    <title>Nexora — Case study at design system</title>
+    <meta name="description" content="Bilingual English and Tagalog case study for Nexora: product overview, design system, color palette, typography, spacing, components, and user flow." />
+    <title>Nexora — Product case study & design system</title>
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
@@ -17,11 +17,13 @@
         </svg>
         <span>Nexora <small>CASE STUDY</small></span>
       </a>
-      <nav aria-label="Pangunahing navigation">
+      <nav aria-label="Main navigation">
         <a href="#overview">Overview</a>
+        <a href="#case-study">Case study</a>
         <a href="#system">Design system</a>
+        <a href="#features">Product map</a>
         <a href="#flow">User flow</a>
-        <a class="nav-cta" href="../">Buksan ang demo <span aria-hidden="true">↗</span></a>
+        <a class="nav-cta" href="../">Open demo / Buksan ang demo <span aria-hidden="true">↗</span></a>
       </nav>
     </header>
 
@@ -29,19 +31,19 @@
       <section class="hero page-width" id="overview">
         <div class="hero-copy">
           <p class="eyebrow"><span class="eyebrow-dot"></span> PRODUCT DESIGN · SAAS DASHBOARD</p>
-          <h1>Isang malinaw na workspace para sa <span>negosyo mo.</span></h1>
-          <p class="hero-description">Ang Nexora ay demo ng store-management app. Dito mo titingnan ang galaw ng negosyo, at aayusin ang orders at products sa iisang lugar.</p>
+          <h1>One clear workspace for <span>what’s next.</span></h1>
+          <p class="hero-description">Nexora is a store-management demo for viewing business activity and organizing orders and products in one workspace.<br /><span lang="fil" class="translation">Ang Nexora ay demo para makita ang takbo ng negosyo at maayos ang orders at products sa iisang workspace.</span></p>
           <div class="hero-actions">
-            <a class="button button-primary" href="../">Subukan ang Nexora <span aria-hidden="true">→</span></a>
-            <a class="text-link" href="#flow">Tingnan kung paano gamitin <span aria-hidden="true">↓</span></a>
+            <a class="button button-primary" href="../">Explore the demo / Subukan ang demo <span aria-hidden="true">→</span></a>
+            <a class="text-link" href="#flow">See how it works / Paano ito gamitin <span aria-hidden="true">↓</span></a>
           </div>
-          <div class="hero-facts" aria-label="Mga detalye ng project">
-            <div><strong>01</strong><span>Isang workspace<br />para sa store</span></div>
-            <div><strong>06</strong><span>Mga pangunahing<br />section</span></div>
-            <div><strong>100%</strong><span>Browser demo<br />walang backend</span></div>
+          <div class="hero-facts" aria-label="Project facts">
+            <div><strong>01</strong><span>Store workspace<br />Isang workspace</span></div>
+            <div><strong>06</strong><span>Core sections<br />Pangunahing sections</span></div>
+            <div><strong>DEMO</strong><span>Browser-local data<br />Sa browser lang ang data</span></div>
           </div>
         </div>
-        <div class="hero-visual" aria-label="Halimbawa ng Nexora store dashboard">
+        <div class="hero-visual" aria-label="Illustrative Nexora store dashboard preview">
           <div class="visual-glow"></div>
           <div class="mock-window">
             <div class="mock-topbar"><span class="window-dots"><i></i><i></i><i></i></span><span class="mock-url">nexora / dashboard</span><span class="mock-avatar">C</span></div>
@@ -57,138 +59,237 @@
                 <span class="mock-nav settings"><i>⚙</i> Settings</span>
               </aside>
               <div class="mock-main">
-                <div class="mock-heading"><div><small>MONDAY, MAY 27, 2024</small><strong>Magandang araw, Alex 👋</strong></div><span class="mock-add">+ New order</span></div>
+                <div class="mock-heading"><div><small>MONDAY, MAY 27, 2024</small><strong>Good morning, Alex 👋</strong></div><span class="mock-add">+ New order</span></div>
                 <div class="mock-metrics">
-                  <article><span>Total sales</span><strong>$12,480</strong><small>↗ 10.7% ngayong buwan</small></article>
-                  <article><span>Orders</span><strong>248</strong><small>↗ 8.2% ngayong buwan</small></article>
-                  <article><span>Products</span><strong>36</strong><small>4 mababa ang stock</small></article>
+                  <article><span>Total sales</span><strong>$12,480</strong><small>↗ 10.7% this month</small></article>
+                  <article><span>Orders</span><strong>248</strong><small>↗ 8.2% this month</small></article>
+                  <article><span>Products</span><strong>36</strong><small>4 low in stock</small></article>
                 </div>
-                <div class="mock-chart"><div class="chart-heading"><strong>Sales overview</strong><span>Huling 7 buwan⌄</span></div><div class="chart-bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="chart-months"><span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span><span>Jul</span></div></div>
-                <div class="mock-orders"><strong>Mga pinakabagong order</strong><div><span class="order-avatar">JM</span><span>Jamie Miller<small>#NX-1048</small></span><b>$84.00</b><em>Completed</em></div><div><span class="order-avatar peach">AL</span><span>Alex Lee<small>#NX-1047</small></span><b>$120.00</b><em class="pending">Processing</em></div></div>
+                <div class="mock-chart"><div class="chart-heading"><strong>Sales overview</strong><span>Last 7 months⌄</span></div><div class="chart-bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="chart-months"><span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span><span>Jul</span></div></div>
+                <div class="mock-orders"><strong>Recent orders</strong><div><span class="order-avatar">JM</span><span>Jamie Miller<small>#NX-1048</small></span><b>$84.00</b><em>Completed</em></div><div><span class="order-avatar peach">AL</span><span>Alex Lee<small>#NX-1047</small></span><b>$120.00</b><em class="pending">Processing</em></div></div>
               </div>
             </div>
           </div>
-          <div class="visual-note"><span class="note-check">✓</span><span><strong>Ang kailangan mo, kita agad.</strong><small>Sales, orders, at products sa isang view.</small></span></div>
+          <div class="visual-note"><span class="note-check">✓</span><span><strong>Key store activity at a glance.</strong><small>Sales, orders, and products in one view.</small></span></div>
+          <p class="mock-caption">Illustrative dashboard with sample figures / Halimbawa lang ng dashboard at data</p>
         </div>
       </section>
 
       <section class="intro-strip">
         <div class="page-width intro-grid">
-          <p class="eyebrow">01 / ANO ITO?</p>
-          <div><h2>Para saan ang screen na nakita mo?</h2><p>Ang unang screen ay <strong>sign up o sign in</strong>—parang pintuan papunta sa store workspace. Gumawa ng demo account para dumaan sa setup. Pagkatapos, mapupunta ka sa dashboard. Hindi ito totoong account system: demo lang ang login at naka-save ang impormasyon sa browser na gamit mo.</p></div>
-          <a class="inline-arrow" href="../">Buksan ang app <span aria-hidden="true">↗</span></a>
+          <p class="eyebrow">START HERE / DITO MAGSIMULA</p>
+          <div><h2>What is the first screen for? / Para saan ang unang screen?</h2><p>The first screen is the app’s sign-up or sign-in entry point. Create a demo account to start onboarding, then Nexora opens your workspace dashboard. This is a front-end demo—not a real authentication service. Account and workspace data stay in this browser.<br /><span lang="fil" class="translation">Ang unang screen ang sign-up o sign-in papasok sa app. Gumawa ng demo account para simulan ang setup, at dadalhin ka sa dashboard. Front-end demo ito, hindi totoong login service. Nasa browser na ito lang ang account at workspace data.</span></p></div>
+          <a class="inline-arrow" href="../">Open the app / Buksan ang app <span aria-hidden="true">↗</span></a>
+        </div>
+      </section>
+
+      <section class="section page-width" id="case-study">
+        <div class="section-heading">
+          <div><p class="eyebrow">01 / PROJECT STORY</p><h2>Case study</h2></div>
+          <p>Product context, design goals, scope, and honest limitations.<br /><span lang="fil" class="translation">Konteksto ng produkto, goals, saklaw, at mga limitasyon.</span></p>
+        </div>
+        <div class="case-intro">
+          <article class="case-lead"><span class="card-label">THE PRODUCT OPPORTUNITY / OPORTUNIDAD</span><h3>Make everyday store operations easier to understand.</h3><p>Small-store work can involve switching between sales summaries, order lists, and product records. Nexora explores a single workspace where these core tasks are easy to find and connected through consistent navigation.</p><p lang="fil" class="translation">Maaaring palipat-lipat ang maliit na negosyo sa sales summary, order list, at product records. Sinusubukan ng Nexora ang iisang workspace kung saan madaling hanapin ang mga pangunahing gawain at pare-pareho ang navigation.</p><div class="callout"><strong>Design framing, not a research claim.</strong><span>This is a portfolio concept and front-end demo. No formal user interviews, usability study, or production analytics are represented here.</span><span lang="fil" class="translation">Design framing ito, hindi resulta ng research. Portfolio concept at front-end demo ito; walang ipinapakitang pormal na interview, usability study, o production analytics.</span></div></article>
+          <div class="case-facts">
+            <article><span>PRODUCT / PRODUKTO</span><strong>Nexora store workspace</strong><p>A responsive store-management dashboard demo.</p><p lang="fil" class="translation">Responsive na demo dashboard para sa store management.</p></article>
+            <article><span>INTENDED AUDIENCE / TARGET USER</span><strong>Independent store operators</strong><p>People who need a quick overview and direct access to day-to-day store records.</p><p lang="fil" class="translation">Mga may-ari o operator na kailangan ng mabilis na overview at direktang access sa araw-araw na records.</p></article>
+            <article><span>DESIGN GOALS / MGA LAYUNIN</span><strong>Orient · Organize · Act</strong><p>Explain where to start, group related tasks, and make primary actions visible.</p><p lang="fil" class="translation">Ipakita kung saan magsisimula, pagsama-samahin ang kaugnay na gawain, at linawin ang pangunahing aksyon.</p></article>
+            <article><span>DELIVERABLE / OUTPUT</span><strong>Responsive front-end prototype</strong><p>Sign-up, onboarding, dashboard, order and product interactions, and settings.</p><p lang="fil" class="translation">Sign-up, onboarding, dashboard, order at product interactions, at settings.</p></article>
+          </div>
+        </div>
+        <div class="case-process-heading"><p class="eyebrow">DESIGN APPROACH / LAPIT SA PAG-DESIGN</p><h3>From entry point to everyday tasks.</h3><p lang="fil" class="translation">Mula sa unang screen hanggang sa araw-araw na gawain.</p></div>
+        <div class="case-process">
+          <article><span>01</span><div><strong>Orient</strong><p>Use a clear entry screen and a focused setup flow so a first-time visitor knows what to do next.</p><p lang="fil" class="translation">Magbigay ng malinaw na entry screen at sunod-sunod na setup para alam ng bagong user ang susunod na gagawin.</p></div></article>
+          <article><span>02</span><div><strong>Organize</strong><p>Group store tasks into Dashboard, Orders, Products, Analytics, Payments, and Settings.</p><p lang="fil" class="translation">Igrupo ang mga gawain sa Dashboard, Orders, Products, Analytics, Payments, at Settings.</p></div></article>
+          <article><span>03</span><div><strong>Make state visible</strong><p>Show selected navigation, order status, empty or validation feedback, and confirmation messages.</p><p lang="fil" class="translation">Ipakita ang active navigation, status ng order, validation, at confirmation ng aksyon.</p></div></article>
+          <article><span>04</span><div><strong>Keep the prototype honest</strong><p>Explain that authentication and storage are browser-local and do not imply cloud sync.</p><p lang="fil" class="translation">Linawin na browser-local ang login at storage; walang cloud sync.</p></div></article>
         </div>
       </section>
 
       <section class="section page-width" id="system">
         <div class="section-heading">
           <div><p class="eyebrow">02 / VISUAL LANGUAGE</p><h2>Design system</h2></div>
-          <p>Mga paulit-ulit na visual rule para magkakaugnay at madaling basahin ang bawat screen.</p>
+          <p>Reusable visual rules for a consistent interface.<br /><span lang="fil" class="translation">Mga reusable na visual rule para magkakatugma ang interface.</span></p>
         </div>
-        <div class="system-grid">
-          <article class="system-card colors-card">
-            <span class="card-label">01 · COLOR</span>
-            <h3>Kalmado, may malinaw na aksyon.</h3>
-            <p>Neutral ang background para madaling makita ang data. Asul ang pangunahing kulay ng actions at active navigation.</p>
-            <div class="swatches">
-              <div><i class="swatch blue"></i><span><strong>Primary blue</strong><small>#155FC5 · actions</small></span></div>
-              <div><i class="swatch navy"></i><span><strong>Deep navy</strong><small>#081529 · welcome panel</small></span></div>
-              <div><i class="swatch canvas"></i><span><strong>Canvas</strong><small>#F7F8FB · page background</small></span></div>
-              <div><i class="swatch ink"></i><span><strong>Ink</strong><small>#181C24 · pangunahing text</small></span></div>
-              <div><i class="swatch success"></i><span><strong>Success</strong><small>#17834C · maayos na status</small></span></div>
+        <div class="system-note"><strong>Source note / Pinanggalingan:</strong> “Current app” values below are read from the Nexora CSS. The spacing and radius scales are documented as recommended reusable tokens based on recurring values—not as a claim that every component already uses only those values.<br /><span lang="fil" class="translation">Ang “Current app” values ay mula sa kasalukuyang CSS. Ang spacing at radius scale ay rekomendasyon para maging reusable—hindi ibig sabihin na lahat ng component ay gumagamit na lang ng mga value na ito.</span></div>
+
+        <article class="system-card palette-card">
+          <div class="subsection-title"><div><span class="card-label">01 · COLOR PALETTE</span><h3>Color has a job—not just a look.</h3><p lang="fil" class="translation">May gamit ang bawat kulay, hindi lang pang-dekorasyon.</p></div><span class="token-source">Current app palette / Palette sa app ngayon</span></div>
+          <div class="palette-grid">
+            <div class="palette-group"><h4>Brand & actions / Brand at actions</h4>
+              <div class="color-token"><i style="--swatch:#155fc5"></i><span><strong>Primary blue</strong><small>HEX #155FC5 · primary buttons, active nav</small><small lang="fil" class="translation">Pangunahing button at active navigation</small></span></div>
+              <div class="color-token"><i style="--swatch:#0e4fae"></i><span><strong>Blue hover</strong><small>HEX #0E4FAE · primary button hover</small><small lang="fil" class="translation">Hover state ng pangunahing button</small></span></div>
+              <div class="color-token"><i style="--swatch:#081529"></i><span><strong>Deep navy</strong><small>HEX #081529 · sign-up welcome panel</small><small lang="fil" class="translation">Madilim na welcome panel sa sign-up screen</small></span></div>
+              <div class="color-token"><i style="--swatch:#eaf1ff"></i><span><strong>Blue tint</strong><small>HEX #EAF1FF · subtle selected/brand surfaces</small><small lang="fil" class="translation">Banayad na background ng selected at brand items</small></span></div>
+              <div class="color-token"><i style="--swatch:#f5f9ff"></i><span><strong>Selected surface</strong><small>HEX #F5F9FF · selected choices</small><small lang="fil" class="translation">Background ng piniling option</small></span></div>
+              <div class="color-token"><i style="--swatch:#94b9f4"></i><span><strong>Focus ring</strong><small>HEX #94B9F4 · keyboard focus outline</small><small lang="fil" class="translation">Outline kapag keyboard navigation</small></span></div>
             </div>
-          </article>
+            <div class="palette-group"><h4>Surfaces & text / Background at text</h4>
+              <div class="color-token"><i style="--swatch:#f7f8fb"></i><span><strong>Canvas</strong><small>HEX #F7F8FB · app page background</small><small lang="fil" class="translation">Pangunahing background ng app</small></span></div>
+              <div class="color-token"><i style="--swatch:#ffffff"></i><span><strong>Surface</strong><small>HEX #FFFFFF · cards, forms, sidebar</small><small lang="fil" class="translation">Cards, forms, at sidebar</small></span></div>
+              <div class="color-token"><i style="--swatch:#181c24"></i><span><strong>Ink</strong><small>HEX #181C24 · primary text</small><small lang="fil" class="translation">Pangunahing kulay ng text</small></span></div>
+              <div class="color-token"><i style="--swatch:#78818e"></i><span><strong>Muted</strong><small>HEX #78818E · supporting text</small><small lang="fil" class="translation">Pangalawang paliwanag at supporting text</small></span></div>
+              <div class="color-token"><i style="--swatch:#e8ebf0"></i><span><strong>Line</strong><small>HEX #E8EBF0 · borders and dividers</small><small lang="fil" class="translation">Border at divider</small></span></div>
+            </div>
+            <div class="palette-group"><h4>Status & data accents / Status at data accents</h4>
+              <div class="color-token"><i style="--swatch:#17834c"></i><span><strong>Success</strong><small>HEX #17834C · positive state</small><small lang="fil" class="translation">Positibong status</small></span></div>
+              <div class="color-token"><i style="--swatch:#eaf8f0"></i><span><strong>Success tint</strong><small>HEX #EAF8F0 · positive metric surface</small><small lang="fil" class="translation">Banayad na background ng positive metric</small></span></div>
+              <div class="color-token"><i style="--swatch:#b13d39"></i><span><strong>Error</strong><small>HEX #B13D39 · error text</small><small lang="fil" class="translation">Text ng error</small></span></div>
+              <div class="color-token"><i style="--swatch:#fff0ef"></i><span><strong>Error tint</strong><small>HEX #FFF0EF · error message surface</small><small lang="fil" class="translation">Background ng error message</small></span></div>
+              <div class="color-token"><i style="--swatch:#d58631"></i><span><strong>Warning</strong><small>HEX #D58631 · attention metric</small><small lang="fil" class="translation">Metric na nangangailangan ng pansin</small></span></div>
+              <div class="color-token"><i style="--swatch:#fff4e8"></i><span><strong>Warning tint</strong><small>HEX #FFF4E8 · attention surface</small><small lang="fil" class="translation">Banayad na background ng warning</small></span></div>
+              <div class="color-token"><i style="--swatch:#7661d8"></i><span><strong>Violet accent</strong><small>HEX #7661D8 · analytics metric icon</small><small lang="fil" class="translation">Accent ng analytics metric icon</small></span></div>
+              <div class="color-token"><i style="--swatch:#f1efff"></i><span><strong>Violet tint</strong><small>HEX #F1EFFF · analytics metric surface</small><small lang="fil" class="translation">Banayad na background ng analytics metric</small></span></div>
+            </div>
+          </div>
+          <div class="usage-rule"><strong>Usage rule / Gabay sa paggamit:</strong> Keep blue for the primary action, use neutrals for most page surfaces, and never rely on status color alone—pair it with a readable label or icon.<br /><span lang="fil" class="translation">Ilaan ang blue sa pangunahing aksyon, neutrals sa karamihan ng background, at laging samahan ng label o icon ang status color.</span></div>
+        </article>
+
+        <div class="system-grid detail-grid">
           <article class="system-card type-card">
-            <span class="card-label">02 · TYPOGRAPHY</span>
-            <h3>Iisang malinaw na hierarchy.</h3>
-            <p>Inter ang pangunahing font; DM Sans ang fallback para manatiling malinis at madaling basahin.</p>
-            <div class="type-sample"><span>Page title · 28–34px</span><strong>Store overview</strong></div>
-            <div class="type-sample"><span>Section title · 16–20px</span><b>Mga pinakabagong order</b></div>
-            <div class="type-sample"><span>Body text · 12–14px</span><p>Tingnan ang galaw ng iyong store.</p></div>
-            <div class="type-sample"><span>Label · 9–11px, bold</span><small>TOTAL SALES</small></div>
-          </article>
-          <article class="system-card components-card">
-            <span class="card-label">03 · COMPONENTS</span>
-            <h3>Pamilyar ang kilos sa bawat page.</h3>
-            <p>Kapag pareho ang itsura ng magkakaparehong control, mas madaling malaman kung saan mag-click.</p>
-            <div class="component-demo">
-              <span class="demo-primary">+ Gumawa</span>
-              <span class="demo-outline">Kanselahin</span>
-              <span class="demo-status"><i></i> Completed</span>
-              <span class="demo-field">Maghanap… <b>⌕</b></span>
+            <span class="card-label">02 · TYPOGRAPHY</span><h3>Type scale & usage</h3><p>Inter is the app’s primary family; DM Sans is the CSS fallback. Sizes below describe the app’s observed range and a practical hierarchy.<br /><span lang="fil" class="translation">Inter ang pangunahing font; DM Sans ang fallback. Ipinapakita rito ang nakitang range at praktikal na hierarchy.</span></p>
+            <div class="type-table">
+              <div class="type-row type-head"><span>Role / Gamit</span><span>Size</span><span>Weight</span><span>Line height*</span><span>Application / Gamit</span></div>
+              <div class="type-row"><strong>Display</strong><span>36–55 px</span><span>600</span><span>1.06–1.16</span><span>Welcome headline</span></div>
+              <div class="type-row"><strong>Page title</strong><span>22–34 px</span><span>600</span><span>1.16–1.3</span><span>Page heading</span></div>
+              <div class="type-row"><strong>Section title</strong><span>13–18 px</span><span>600</span><span>1.3–1.45</span><span>Panel heading</span></div>
+              <div class="type-row"><strong>Body</strong><span>10–13 px</span><span>400</span><span>1.5–1.75</span><span>Description / helper</span></div>
+              <div class="type-row"><strong>Control label</strong><span>9–10 px</span><span>600</span><span>1.4</span><span>Form / button</span></div>
+              <div class="type-row"><strong>Metadata</strong><span>8–9 px</span><span>400–700</span><span>1.4–1.5</span><span>Date / status detail</span></div>
             </div>
-            <ul class="plain-list">
-              <li><span>Buttons</span> Asul para sa pangunahing aksyon; outline para sa pangalawa.</li>
-              <li><span>Status</span> Kulay at label para madaling makita ang lagay ng order.</li>
-              <li><span>Cards</span> Puting surface, banayad na border, at consistent na pagitan.</li>
-            </ul>
+            <p class="table-note">Font family: Inter → DM Sans → sans-serif. Weight 400 = regular, 500 = medium, 600 = semibold, 700 = bold. Heading tracking is typically −0.04 to −0.075em; uppercase labels use +0.08 to +0.13em. *Line-height ranges are recommended tokens; the app currently defines line-height per component, not as one global scale.<br /><span lang="fil" class="translation">Font family: Inter → DM Sans → sans-serif. 400 regular, 500 medium, 600 semibold, 700 bold. Karaniwang mas dikit ang heading (−0.04 hanggang −0.075em); mas maluwag ang uppercase label (+0.08 hanggang +0.13em). *Rekomendadong line-height ang mga range; iba-iba ito kada component sa kasalukuyang app.</span></p>
           </article>
-          <article class="system-card layout-card">
-            <span class="card-label">04 · LAYOUT & ACCESSIBILITY</span>
-            <h3>Responsive, hindi lang pang-desktop.</h3>
-            <p>Nananatiling madaling gamitin ang dashboard sa maliit na screen at malinaw ang navigation.</p>
-            <div class="layout-preview"><span class="layout-desktop"><i></i><i></i><i></i><b>Desktop · sidebar + content</b></span><span class="layout-mobile"><i></i><b>Mobile · menu + stacked cards</b></span></div>
-            <ul class="plain-list">
-              <li><span>Responsive</span> Nagiging menu ang sidebar sa mobile; nag-i-stack ang cards.</li>
-              <li><span>Keyboard</span> May visible focus indicator ang interactive controls.</li>
-              <li><span>Feedback</span> May mensahe kapag may kailangang punan o may nagawang aksyon.</li>
-            </ul>
+          <article class="system-card spacing-card">
+            <span class="card-label">03 · SPACING & GRID</span><h3>Spacing tokens</h3><p>A recommended 4 px base scale, consolidated from recurring app spacing. Use the closest token instead of inventing a new gap each time.<br /><span lang="fil" class="translation">Inirerekomendang 4 px base scale mula sa madalas na spacing sa app. Piliin ang pinakamalapit na token sa halip na mag-imbento ng bagong gap.</span></p>
+            <div class="spacing-tokens">
+              <div><span>space-1</span><i style="--space:4px"></i><strong>4 px</strong><small>Icon gap / pagitan ng icon</small></div>
+              <div><span>space-2</span><i style="--space:8px"></i><strong>8 px</strong><small>Related items / magkaugnay na item</small></div>
+              <div><span>space-3</span><i style="--space:12px"></i><strong>12 px</strong><small>Compact padding / compact na padding</small></div>
+              <div><span>space-4</span><i style="--space:16px"></i><strong>16 px</strong><small>Default component / default na component</small></div>
+              <div><span>space-5</span><i style="--space:20px"></i><strong>20 px</strong><small>Card grouping / grupo ng cards</small></div>
+              <div><span>space-6</span><i style="--space:24px"></i><strong>24 px</strong><small>Large component padding / malaking padding</small></div>
+              <div><span>space-8</span><i style="--space:32px"></i><strong>32 px</strong><small>Page gutter / gilid ng page</small></div>
+              <div><span>space-10</span><i style="--space:40px"></i><strong>40 px</strong><small>Major section gap / pagitan ng sections</small></div>
+              <div><span>space-12</span><i style="--space:48px"></i><strong>48 px</strong><small>Large section gap / malaking pagitan ng sections</small></div>
+            </div>
+            <p class="table-note">The app also uses one-off 6, 10, 14, and 18 px gaps in compact controls. Keep those as component-specific exceptions; use the 4 px scale for new layout decisions.<br /><span lang="fil" class="translation">May ilang 6, 10, 14, at 18 px na pagitan sa compact controls. Panatilihin iyon bilang component-specific; gamitin ang 4 px scale sa bagong layout.</span></p>
+            <div class="layout-specs"><div><strong>Desktop</strong><span>244 px sidebar · 66 px topbar · 32 px page gutter</span><small>Sidebar 244 px · topbar 66 px · page gutter 32 px</small></div><div><strong>Tablet</strong><span>Sidebar collapses at 800 px breakpoint</span><small>Nagiging collapsible ang sidebar sa 800 px breakpoint</small></div><div><strong>Mobile</strong><span>12–18 px page gutters · stacked content</span><small>12–18 px page gutter · patung-patong na content</small></div></div>
           </article>
+          <article class="system-card component-card">
+            <span class="card-label">04 · COMPONENTS & STATES</span><h3>Component rules</h3><p>Reusable patterns make controls predictable across the app.<br /><span lang="fil" class="translation">Nagiging predictable ang controls kapag reusable ang patterns.</span></p>
+            <div class="component-demo"><span class="demo-primary">+ Create / Gumawa</span><span class="demo-outline">Cancel / Kanselahin</span><span class="demo-status"><i></i> Completed / Tapos</span><span class="demo-field">Search / Hanap… <b>⌕</b></span></div>
+            <div class="component-table">
+              <div><strong>Primary button</strong><span>Blue fill, white label; use for the main action. / Blue fill at puting label para sa pangunahing aksyon.</span></div>
+              <div><strong>Secondary button</strong><span>Neutral outline; use for back, cancel, or lower-priority action. / Neutral outline para sa back, cancel, o secondary action.</span></div>
+              <div><strong>Navigation</strong><span>Persistent sidebar; blue fill marks the current section. / Nananatiling sidebar; blue ang active section.</span></div>
+              <div><strong>Cards & tables</strong><span>White surface, subtle border, consistent spacing. / Puting background, banayad na border, consistent na spacing.</span></div>
+              <div><strong>Feedback states</strong><span>Inline validation, toast confirmation, and clear destructive-action confirmation. / Inline validation, toast, at confirmation bago mag-delete.</span></div>
+              <div><strong>Focus</strong><span>Visible 3 px keyboard focus outline. / Kitang 3 px focus outline kapag keyboard ang gamit.</span></div>
+            </div>
+          </article>
+          <article class="system-card shape-card">
+            <span class="card-label">05 · SHAPE, ELEVATION & RESPONSIVE</span><h3>Surfaces and breakpoints</h3><p>Keep surfaces quiet so store data and actions remain the focus.<br /><span lang="fil" class="translation">Panatilihing simple ang surfaces para data at actions ang mabigyang-pansin.</span></p>
+            <div class="shape-tokens"><div><i class="radius-4"></i><strong>4–6 px</strong><span>Controls & compact rows</span><small>Controls at compact rows</small></div><div><i class="radius-8"></i><strong>7–9 px</strong><span>Cards & panels</span><small>Cards at panels</small></div><div><i class="elevation"></i><strong>Low elevation</strong><span>Dropdowns, dialogs, floating feedback</span><small>Halimbawa: 0 2px 8px · 0 12px 30px</small></div></div>
+            <div class="dimension-list"><div><strong>Primary button</strong><span>40 px min height · 10 px label</span><small>Minimum na taas · laki ng label</small></div><div><strong>Form input</strong><span>43 px height · 11 px text</span><small>Taas ng input · laki ng text</small></div><div><strong>Dashboard shell</strong><span>244 px sidebar · 66 px topbar</span><small>Lapad ng sidebar · taas ng topbar</small></div></div>
+            <div class="breakpoint-list"><div><strong>&gt; 1050 px</strong><span>Full sidebar + 4 metric cards per row / Buong sidebar + 4 metric cards bawat row</span></div><div><strong>801–1050 px</strong><span>Narrower sidebar and content spacing / Mas makitid na sidebar at pagitan</span></div><div><strong>621–800 px</strong><span>Slide-in mobile navigation / Slide-in na mobile navigation</span></div><div><strong>≤ 620 px</strong><span>Single-column cards and compact topbar / Isang column na cards at compact na topbar</span></div></div>
+          </article>
+        </div>
+        <div class="system-footer-note"><strong>How to apply this system / Paano gamitin ang system:</strong> Start with semantic color and type tokens, use the spacing scale for layout, reuse existing button/card/form patterns, and check desktop plus mobile states. The demo CSS currently contains some component-specific values; treat this page as the documented foundation for future cleanup and consistency.<br /><span lang="fil" class="translation">Magsimula sa semantic color at type token, gamitin ang spacing scale, i-reuse ang button/card/form patterns, at i-check ang desktop at mobile. May component-specific values pa rin sa kasalukuyang CSS; ito ang dokumentadong basehan para sa susunod na cleanup at consistency.</span></div>
+      </section>
+
+      <section class="section page-width" id="features">
+        <div class="section-heading">
+          <div><p class="eyebrow">03 / PRODUCT MAP</p><h2>What each section is for</h2></div>
+          <p>Purpose and real demo interactions by destination.<br /><span lang="fil" class="translation">Layunin at aktuwal na demo interactions sa bawat section.</span></p>
+        </div>
+        <div class="feature-table">
+          <div class="feature-row feature-head"><span>Section</span><span>User need / Pangangailangan</span><span>Available in demo / Gamit sa demo</span></div>
+          <div class="feature-row"><strong>Dashboard</strong><span>Get a quick overview<small lang="fil" class="translation">Mabilis na overview</small></span><span>See sample revenue, orders, recent activity; jump to Orders.<small lang="fil" class="translation">Tingnan ang sample sales at orders; pumunta sa Orders.</small></span></div>
+          <div class="feature-row"><strong>Orders</strong><span>Track and update orders<small lang="fil" class="translation">Subaybayan at i-update ang orders</small></span><span>Create, search, update status, export CSV, and delete demo orders.<small lang="fil" class="translation">Gumawa, maghanap, mag-update ng status, mag-export ng CSV, at mag-delete.</small></span></div>
+          <div class="feature-row"><strong>Products</strong><span>Review store products<small lang="fil" class="translation">Tingnan ang products ng store</small></span><span>Search, add, and delete demo products.<small lang="fil" class="translation">Maghanap, magdagdag, at mag-delete ng demo products.</small></span></div>
+          <div class="feature-row"><strong>Analytics</strong><span>Review business metrics<small lang="fil" class="translation">Suriin ang business metrics</small></span><span>View illustrative, browser-local demo analytics.<small lang="fil" class="translation">Tingnan ang halimbawang analytics sa browser.</small></span></div>
+          <div class="feature-row"><strong>Payments</strong><span>Understand payment activity<small lang="fil" class="translation">Tingnan ang payment activity</small></span><span>Demo display only; no payment processor is connected.<small lang="fil" class="translation">Demo display lang; walang konektadong payment processor.</small></span></div>
+          <div class="feature-row"><strong>Settings</strong><span>Maintain account and workspace details<small lang="fil" class="translation">Ayusin ang account at workspace</small></span><span>Edit local profile and workspace settings.<small lang="fil" class="translation">I-edit ang local profile at workspace settings.</small></span></div>
+        </div>
+        <p class="feature-caption">This is a front-end interaction map, not a claim that the demo connects to real orders, inventory, analytics, or payment services.<br /><span lang="fil" class="translation">Mapa ito ng front-end interactions, hindi koneksyon sa totoong orders, inventory, analytics, o payment services.</span></p>
+        <div class="scope-grid">
+          <article><span class="card-label">IN SCOPE / KASAMA</span><h3>What this prototype demonstrates</h3><p>Responsive navigation, local demo sign-up, three-step onboarding, workspace switching, sample dashboard, and front-end order/product interactions.</p><p lang="fil" class="translation">Responsive navigation, local demo sign-up, tatlong hakbang na onboarding, workspace switching, sample dashboard, at front-end interactions sa orders/products.</p></article>
+          <article><span class="card-label">OUT OF SCOPE / HINDI KASAMA</span><h3>What it does not provide</h3><p>Real authentication, server database, cloud sync, team permissions, live commerce integrations, payment processing, or production analytics.</p><p lang="fil" class="translation">Walang totoong authentication, server database, cloud sync, team permissions, commerce integration, payment processing, o production analytics.</p></article>
+          <article><span class="card-label">NEXT VALIDATION / SUSUNOD NA I-VALIDATE</span><h3>What to test with real store owners</h3><p>Check whether first-time users understand workspace setup, can find key order tasks, and can interpret order status and sample metrics without help.</p><p lang="fil" class="translation">Subukan kung naiintindihan ng bagong user ang setup, nahahanap ang order tasks, at nauunawaan ang status at sample metrics nang walang tulong.</p><small>Suggested study—not completed research / Iminungkahing pag-aaral, hindi pa aktuwal na research</small></article>
         </div>
       </section>
 
       <section class="flow-section" id="flow">
         <div class="page-width">
           <div class="section-heading flow-heading">
-            <div><p class="eyebrow">03 / HAKBANG-HAKBANG</p><h2>User flow</h2></div>
-            <p>Ganito ang dadaanan mo mula sa unang screen hanggang sa pag-manage ng store.</p>
+          <div><p class="eyebrow">04 / TASK JOURNEY</p><h2>User flow & flowchart</h2></div>
+            <p>Follow the paths from entry to the dashboard, including validation, returning users, and the demo’s limits.<br /><span lang="fil" class="translation">Sundan ang path mula entry hanggang dashboard, kasama ang validation, returning user, at limitasyon ng demo.</span></p>
+          </div>
+          <div class="flow-legend"><span><i class="legend-action"></i> User action / Aksyon ng user</span><span><i class="legend-decision"></i> App decision / Desisyon ng app</span><span><i class="legend-system"></i> System result / Resulta</span></div>
+          <div class="flowchart" aria-label="Nexora user flowchart">
+            <div class="flow-node flow-start"><strong>Open Nexora</strong><small>Buksan ang Nexora</small></div>
+            <div class="connector"><span>First visit / Unang bisita</span></div>
+            <div class="flow-node flow-action"><strong>Sign up or sign in</strong><small>Mag-sign up o mag-sign in</small></div>
+            <div class="connector"></div>
+            <div class="flow-decision"><span>Does a local demo account exist?<small>May demo account ba sa browser na ito?</small></span></div>
+            <div class="flow-branches">
+              <article class="branch-path path-no"><span class="path-label">NO / WALA</span><div class="flow-node flow-action"><strong>Create demo account</strong><small>Name + email + password (8+ characters)<br />Pangalan + email + password (8+ characters)</small></div><div class="connector"></div><div class="flow-node flow-result"><strong>Account saved locally</strong><small>Password is not saved; demo session starts.<br />Hindi sine-save ang password; nagsisimula ang demo session.</small></div></article>
+              <article class="branch-path path-yes"><span class="path-label">YES / MERON</span><div class="flow-node flow-action"><strong>Enter saved email</strong><small>Ilagay ang email na naka-save sa browser</small></div><div class="connector"></div><div class="flow-node flow-result"><strong>Email match?</strong><small>Demo only: email check, no real password verification.<br />Demo lang: email ang chine-check, walang totoong password verification.</small></div></article>
+            </div>
+            <div class="merge-flow"><span>Valid path / Tamang path</span></div>
+            <div class="flow-decision"><span>Does a workspace already exist?<small>May existing workspace na ba?</small></span></div>
+            <div class="flow-branches workspace-branches">
+              <article class="branch-path path-no"><span class="path-label">NO / WALA</span><div class="onboarding-flow">
+                <article class="flow-step"><span>SETUP 1/3</span><strong>Workspace name</strong><small>Required · kailangan</small><p>Choose the name shown in the workspace picker.<br />Pangalan na makikita sa workspace picker.</p></article>
+                <article class="flow-step"><span>SETUP 2/3</span><strong>Business category</strong><small>Required · kailangan</small><p>Choose retail, studio, services, food, or other.<br />Pumili ng uri ng negosyo.</p></article>
+                <article class="flow-step"><span>SETUP 3/3</span><strong>Goal + currency</strong><small>Goal optional · currency defaults to USD</small><p>Pumili ng focus at currency. Default ang USD.<br />Piliin ang focus at currency; default ang USD.</p></article>
+              </div><div class="connector"></div><div class="flow-node flow-result"><strong>Create workspace</strong><small>Sample orders and products are added for the demo.<br />May sample orders at products para sa demo.</small></div></article>
+              <article class="branch-path path-yes"><span class="path-label">YES / MERON</span><div class="flow-node flow-result"><strong>Open existing workspace</strong><small>Buksan ang kasalukuyang workspace</small></div></article>
+            </div>
+            <div class="merge-flow"><span>Workspace ready / Handa na ang workspace</span></div>
+            <div class="flow-node flow-dashboard"><strong>Dashboard</strong><small>Review store summary / Tingnan ang buod ng store</small></div>
+            <div class="connector"><span>Choose a section / Pumili ng section</span></div>
+            <div class="destination-grid">
+              <article><span>01</span><strong>Dashboard</strong><small>Store overview / Buod</small></article>
+              <article><span>02</span><strong>Orders</strong><small>Create, update status, delete / Gumawa, mag-update, mag-delete</small></article>
+              <article><span>03</span><strong>Products</strong><small>Add or delete demo products / Magdagdag o mag-delete</small></article>
+              <article><span>04</span><strong>Analytics</strong><small>Review demo metrics / Tingnan ang demo metrics</small></article>
+              <article><span>05</span><strong>Payments</strong><small>Review demo payment view / Demo view ng payments</small></article>
+              <article><span>06</span><strong>Settings</strong><small>Edit profile and workspace / I-edit ang profile at workspace</small></article>
+            </div>
+            <div class="flow-return"><span>Workspace picker → switch or add a workspace</span><span>Workspace picker → magpalit o magdagdag ng workspace</span></div>
+            <div class="flow-return"><span>Log out → return to sign in; local demo data remains</span><span>Mag-log out → balik sa sign in; nananatili ang local demo data</span></div>
           </div>
 
-          <div class="flow-card">
-            <div class="flow-topline"><span>01</span><div><strong>Pumasok sa Nexora</strong><small>Sign up kung bago ka; sign in kung may demo account ka na.</small></div></div>
-            <div class="entry-branches">
-              <article class="flow-branch signup-branch"><span class="branch-tag">BAGONG USER</span><strong>Gumawa ng account</strong><p>Ilagay ang pangalan, email, at demo password.</p></article>
-              <article class="flow-branch login-branch"><span class="branch-tag">MAY ACCOUNT NA</span><strong>Mag-sign in</strong><p>Email na ginamit sa account sa browser na ito.</p></article>
-            </div>
-            <div class="merge-line"><span>Pagkatapos ng sign up, o kung kailangan pang mag-set up ng workspace</span></div>
-            <div class="onboarding-flow">
-              <article class="flow-step"><span>02 · SETUP 1/3</span><strong>Pangalan ng workspace</strong><small>Hal. Sunday Goods</small></article>
-              <article class="flow-step"><span>03 · SETUP 2/3</span><strong>Uri ng negosyo</strong><small>Retail, studio, services, food, o iba pa</small></article>
-              <article class="flow-step"><span>04 · SETUP 3/3</span><strong>Focus at currency</strong><small>Pumili ng goal at pera ng store</small></article>
-            </div>
-            <div class="flow-down"><span>Gumawa ng workspace</span></div>
-            <article class="dashboard-step"><span class="dashboard-icon">▦</span><div><span>05 · IYONG HOME BASE</span><strong>Dashboard</strong><small>Sales overview, summary ng orders, at shortcut sa mga susunod na gawain.</small></div><span class="dashboard-pill">Nagsisimula na rito</span></article>
-            <div class="flow-down"><span>Pumili ng section mula sa sidebar</span></div>
-            <div class="destination-grid">
-              <article><span>01</span><strong>Dashboard</strong><small>Buod ng store</small></article>
-              <article><span>02</span><strong>Orders</strong><small>Gumawa at mag-update</small></article>
-              <article><span>03</span><strong>Products</strong><small>Tingnan ang inventory</small></article>
-              <article><span>04</span><strong>Analytics</strong><small>Suriin ang resulta</small></article>
-              <article><span>05</span><strong>Payments</strong><small>Tingnan ang bayad</small></article>
-              <article><span>06</span><strong>Settings</strong><small>I-edit ang workspace</small></article>
-            </div>
-            <div class="storage-note"><span aria-hidden="true">ⓘ</span><p><strong>Mahalagang tandaan:</strong> Demo ang account at data. Naka-save lang ang workspace, orders, at products sa local storage ng browser na ito. Hindi ito totoong login o cloud database, kaya hindi awtomatikong makikita sa ibang device.</p></div>
+          <div class="flow-details">
+            <article><span class="detail-number">A</span><div><h3>New user / Bagong user</h3><p><strong>Sign up → onboarding → dashboard.</strong> The form checks required fields and a minimum 8-character password. The email and display name are stored locally; the password is deliberately not stored. A duplicate local email is directed to sign in.</p><p lang="fil" class="translation"><strong>Sign up → onboarding → dashboard.</strong> Chine-check ang required fields at minimum 8 characters ang password. Local na sine-save ang email at pangalan; hindi sine-save ang password. Kapag duplicate ang email sa browser, pinapapunta sa sign in.</p></div></article>
+            <article><span class="detail-number">B</span><div><h3>Returning user / Bumabalik na user</h3><p><strong>Sign in → workspace check.</strong> In this front-end demo, sign-in checks whether the entered email matches the locally saved account; there is no real password validation. If the account has a workspace, open it. If not, begin onboarding.</p><p lang="fil" class="translation"><strong>Sign in → check ng workspace.</strong> Sa front-end demo, chine-check kung tugma ang email sa local account; walang totoong password validation. Kung may workspace, buksan ito. Kung wala, simulan ang onboarding.</p></div></article>
+            <article><span class="detail-number">C</span><div><h3>Workspace setup / Setup ng workspace</h3><p><strong>Step 1 name required; step 2 category required; step 3 goal optional.</strong> Currency starts at USD and can be changed. Creating the workspace adds example order and product records so the dashboard is not empty.</p><p lang="fil" class="translation"><strong>Kailangan ang pangalan sa step 1 at category sa step 2; optional ang goal sa step 3.</strong> USD ang default currency at puwedeng palitan. Nagdadagdag ng sample order at product para may laman agad ang dashboard.</p></div></article>
+            <article><span class="detail-number">D</span><div><h3>After onboarding / Pagkatapos ng onboarding</h3><p><strong>Dashboard → task section → manage records.</strong> Orders can be created, status-updated, and deleted; products can be added and deleted. The workspace picker switches between workspaces or starts setup for another one.</p><p lang="fil" class="translation"><strong>Dashboard → section → ayusin ang records.</strong> Puwedeng gumawa ng order, magpalit ng status, o mag-delete; puwedeng magdagdag at mag-delete ng product. Sa workspace picker, puwedeng magpalit o gumawa ng panibagong workspace.</p></div></article>
           </div>
+          <div class="flow-caveat"><strong>Not implemented as a real service / Hindi totoong service:</strong> Forgot password only displays a demo notice—no email is sent. Authentication, cloud sync, real payments, and shared multi-user data are outside this prototype. Clearing this browser’s site data may remove the local demo workspace.<br /><span lang="fil" class="translation">Demo notice lang ang forgot password—walang email na ipinapadala. Wala sa prototype ang totoong authentication, cloud sync, payments, at shared multi-user data. Maaaring mabura ang local workspace kapag ni-clear ang site data ng browser na ito.</span></div>
         </div>
       </section>
 
       <section class="section page-width" id="decisions">
         <div class="section-heading">
-          <div><p class="eyebrow">04 / BAKIT GANITO?</p><h2>Mga design decision</h2></div>
-          <p>Mga simpleng dahilan sa likod ng itsura at daloy.</p>
+          <div><p class="eyebrow">05 / DESIGN RATIONALE</p><h2>Why these decisions?</h2></div>
+          <p>Intentional choices and trade-offs in the current prototype.<br /><span lang="fil" class="translation">Mga sinadyang desisyon at trade-off sa kasalukuyang prototype.</span></p>
         </div>
         <div class="decision-grid">
-          <article><span>01</span><div><h3>Dashboard muna</h3><p>Pagkabukas ng workspace, agad makikita ang buod bago pumunta sa mas detalyadong records.</p></div></article>
-          <article><span>02</span><div><h3>Setup na paunti-unti</h3><p>Tatlong maikling hakbang para makapagsimula nang hindi sabay-sabay ang mga tanong.</p></div></article>
-          <article><span>03</span><div><h3>Iisang navigation</h3><p>Pare-pareho ang sidebar sa mga section para madaling magpalipat-lipat ng gawain.</p></div></article>
-          <article><span>04</span><div><h3>Demo na may malinaw na limitasyon</h3><p>May notice na browser-local lang ang data para hindi mapagkamalang live service ang prototype.</p></div></article>
+          <article><span>01</span><div><h3>Dashboard first / Dashboard muna</h3><p>A summary gives the user a starting point before they open detailed records.<br /><span lang="fil" class="translation">Buod muna bago pumunta sa mas detalyadong records.</span></p></div></article>
+          <article><span>02</span><div><h3>Progressive onboarding / Paunti-unting setup</h3><p>Three short steps split setup into workspace, business type, and personal focus.<br /><span lang="fil" class="translation">Hinahati sa tatlong maikling hakbang ang setup.</span></p></div></article>
+          <article><span>03</span><div><h3>Persistent navigation / Pare-parehong navigation</h3><p>A stable sidebar keeps the six key destinations easy to recognize.<br /><span lang="fil" class="translation">Madaling makilala ang anim na pangunahing section sa iisang sidebar.</span></p></div></article>
+          <article><span>04</span><div><h3>Visible feedback / Kitang feedback</h3><p>Validation and confirmations make the outcome of an action easier to understand.<br /><span lang="fil" class="translation">Mas malinaw ang resulta ng aksyon kapag may validation at confirmation.</span></p></div></article>
+          <article><span>05</span><div><h3>Responsive adaptation / Pag-angkop sa screen</h3><p>The sidebar becomes a mobile menu and content cards stack on narrow viewports.<br /><span lang="fil" class="translation">Nagiging mobile menu ang sidebar at nag-i-stack ang cards sa maliit na screen.</span></p></div></article>
+          <article><span>06</span><div><h3>Honest prototype scope / Tapat na demo limits</h3><p>Local-only storage is explained rather than presented as cloud-backed SaaS.<br /><span lang="fil" class="translation">Nililinaw na local storage lang ito, hindi cloud-backed SaaS.</span></p></div></article>
         </div>
       </section>
 
       <section class="closing">
-        <div class="page-width closing-inner"><div><p class="eyebrow">READY TO EXPLORE?</p><h2>Subukan ang flow sa Nexora mismo.</h2><p>Gumawa ng demo account at sundan ang onboarding papunta sa workspace.</p></div><a class="button button-light" href="../">Buksan ang Nexora demo <span aria-hidden="true">↗</span></a></div>
+        <div class="page-width closing-inner"><div><p class="eyebrow">READY TO EXPLORE? / READY KA NA?</p><h2>Try the flow in Nexora.</h2><p>Create a demo account and follow onboarding into the workspace.<br /><span lang="fil" class="translation">Gumawa ng demo account at sundan ang onboarding papunta sa workspace.</span></p></div><a class="button button-light" href="../">Open Nexora demo / Buksan ang demo <span aria-hidden="true">↗</span></a></div>
       </section>
     </main>
-    <footer class="site-footer page-width"><a class="footer-brand" href="#top">Nexora <span>· Case study</span></a><span>Standalone na gabay · hindi bahagi ng store app</span><a href="#top">Bumalik sa taas ↑</a></footer>
+    <footer class="site-footer page-width"><a class="footer-brand" href="#top">Nexora <span>· Case study</span></a><span>Standalone guide · Hiwalay na gabay, hindi bahagi ng store app</span><a href="#top">Back to top / Taas ↑</a></footer>
   </body>
 </html>
