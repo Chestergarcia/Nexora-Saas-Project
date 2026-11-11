@@ -90,7 +90,15 @@ function makeWorkspace(name, category, currency, goal) {
 }
 
 function Brand({ light = false }) {
-  return <div className={`brand${light ? ' brand-light' : ''}`}><span className="brand-symbol">N</span><span>Nexora</span></div>
+  return (
+    <div className={`brand${light ? ' brand-light' : ''}`}>
+      <svg className="brand-symbol" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+        <path d="M7.1 24.7c.8-4.1 7.8-10.2 16.3-14.4 6.3-3.1 13.4-5.3 15.1-4.4 1.7 1-3.3 7.4-10.1 13.8-7 6.5-15.9 12.5-19.3 11.6-1.6-.4-2.4-3.1-2-6.6Z" fill="#0759bd" />
+        <path d="M12.1 39.5c1.2-4.7 6.9-11.4 13.2-16.5 2.4-2 5.3-3.7 6-2.7.7 1.1-2.3 7.2-6.4 12.8-4.1 5.5-9.2 10.1-11.5 9.1-1.2-.5-1.7-1.4-1.3-2.7Z" fill="#5a9df4" />
+      </svg>
+      <span>Nexora</span>
+    </div>
+  )
 }
 
 function AuthArtwork() {
