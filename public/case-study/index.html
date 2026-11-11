@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="fil">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f5f7fb" />
+    <meta name="description" content="Case study ng Nexora: paano gamitin ang store workspace, design system, at user flow." />
+    <title>Nexora — Case study at design system</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Nexora case study, taas ng page">
+        <svg viewBox="0 0 48 48" aria-hidden="true">
+          <path d="M7.1 24.7c.8-4.1 7.8-10.2 16.3-14.4 6.3-3.1 13.4-5.3 15.1-4.4 1.7 1-3.3 7.4-10.1 13.8-7 6.5-15.9 12.5-19.3 11.6-1.6-.4-2.4-3.1-2-6.6Z" fill="#0759bd" />
+          <path d="M12.1 39.5c1.2-4.7 6.9-11.4 13.2-16.5 2.4-2 5.3-3.7 6-2.7.7 1.1-2.3 7.2-6.4 12.8-4.1 5.5-9.2 10.1-11.5 9.1-1.2-.5-1.7-1.4-1.3-2.7Z" fill="#5a9df4" />
+        </svg>
+        <span>Nexora <small>CASE STUDY</small></span>
+      </a>
+      <nav aria-label="Pangunahing navigation">
+        <a href="#overview">Overview</a>
+        <a href="#system">Design system</a>
+        <a href="#flow">User flow</a>
+        <a class="nav-cta" href="../">Buksan ang demo <span aria-hidden="true">↗</span></a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero page-width" id="overview">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="eyebrow-dot"></span> PRODUCT DESIGN · SAAS DASHBOARD</p>
+          <h1>Isang malinaw na workspace para sa <span>negosyo mo.</span></h1>
+          <p class="hero-description">Ang Nexora ay demo ng store-management app. Dito mo titingnan ang galaw ng negosyo, at aayusin ang orders at products sa iisang lugar.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="../">Subukan ang Nexora <span aria-hidden="true">→</span></a>
+            <a class="text-link" href="#flow">Tingnan kung paano gamitin <span aria-hidden="true">↓</span></a>
+          </div>
+          <div class="hero-facts" aria-label="Mga detalye ng project">
+            <div><strong>01</strong><span>Isang workspace<br />para sa store</span></div>
+            <div><strong>06</strong><span>Mga pangunahing<br />section</span></div>
+            <div><strong>100%</strong><span>Browser demo<br />walang backend</span></div>
+          </div>
+        </div>
+        <div class="hero-visual" aria-label="Halimbawa ng Nexora store dashboard">
+          <div class="visual-glow"></div>
+          <div class="mock-window">
+            <div class="mock-topbar"><span class="window-dots"><i></i><i></i><i></i></span><span class="mock-url">nexora / dashboard</span><span class="mock-avatar">C</span></div>
+            <div class="mock-app">
+              <aside class="mock-sidebar">
+                <div class="mock-brand"><span class="mini-mark">N</span>Nexora</div>
+                <span class="mock-store">SUNDAY GOODS <b>⌄</b></span>
+                <span class="mock-nav active"><i>▦</i> Dashboard</span>
+                <span class="mock-nav"><i>☷</i> Orders <b class="count">8</b></span>
+                <span class="mock-nav"><i>▤</i> Products</span>
+                <span class="mock-nav"><i>▥</i> Analytics</span>
+                <span class="mock-nav"><i>◈</i> Payments</span>
+                <span class="mock-nav settings"><i>⚙</i> Settings</span>
+              </aside>
+              <div class="mock-main">
+                <div class="mock-heading"><div><small>MONDAY, MAY 27, 2024</small><strong>Magandang araw, Alex 👋</strong></div><span class="mock-add">+ New order</span></div>
+                <div class="mock-metrics">
+                  <article><span>Total sales</span><strong>$12,480</strong><small>↗ 10.7% ngayong buwan</small></article>
+                  <article><span>Orders</span><strong>248</strong><small>↗ 8.2% ngayong buwan</small></article>
+                  <article><span>Products</span><strong>36</strong><small>4 mababa ang stock</small></article>
+                </div>
+                <div class="mock-chart"><div class="chart-heading"><strong>Sales overview</strong><span>Huling 7 buwan⌄</span></div><div class="chart-bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="chart-months"><span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span><span>Jul</span></div></div>
+                <div class="mock-orders"><strong>Mga pinakabagong order</strong><div><span class="order-avatar">JM</span><span>Jamie Miller<small>#NX-1048</small></span><b>$84.00</b><em>Completed</em></div><div><span class="order-avatar peach">AL</span><span>Alex Lee<small>#NX-1047</small></span><b>$120.00</b><em class="pending">Processing</em></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="visual-note"><span class="note-check">✓</span><span><strong>Ang kailangan mo, kita agad.</strong><small>Sales, orders, at products sa isang view.</small></span></div>
+        </div>
+      </section>
+
+      <section class="intro-strip">
+        <div class="page-width intro-grid">
+          <p class="eyebrow">01 / ANO ITO?</p>
+          <div><h2>Para saan ang screen na nakita mo?</h2><p>Ang unang screen ay <strong>sign up o sign in</strong>—parang pintuan papunta sa store workspace. Gumawa ng demo account para dumaan sa setup. Pagkatapos, mapupunta ka sa dashboard. Hindi ito totoong account system: demo lang ang login at naka-save ang impormasyon sa browser na gamit mo.</p></div>
+          <a class="inline-arrow" href="../">Buksan ang app <span aria-hidden="true">↗</span></a>
+        </div>
+      </section>
+
+      <section class="section page-width" id="system">
+        <div class="section-heading">
+          <div><p class="eyebrow">02 / VISUAL LANGUAGE</p><h2>Design system</h2></div>
+          <p>Mga paulit-ulit na visual rule para magkakaugnay at madaling basahin ang bawat screen.</p>
+        </div>
+        <div class="system-grid">
+          <article class="system-card colors-card">
+            <span class="card-label">01 · COLOR</span>
+            <h3>Kalmado, may malinaw na aksyon.</h3>
+            <p>Neutral ang background para madaling makita ang data. Asul ang pangunahing kulay ng actions at active navigation.</p>
+            <div class="swatches">
+              <div><i class="swatch blue"></i><span><strong>Primary blue</strong><small>#155FC5 · actions</small></span></div>
+              <div><i class="swatch navy"></i><span><strong>Deep navy</strong><small>#081529 · welcome panel</small></span></div>
+              <div><i class="swatch canvas"></i><span><strong>Canvas</strong><small>#F7F8FB · page background</small></span></div>
+              <div><i class="swatch ink"></i><span><strong>Ink</strong><small>#181C24 · pangunahing text</small></span></div>
+              <div><i class="swatch success"></i><span><strong>Success</strong><small>#17834C · maayos na status</small></span></div>
+            </div>
+          </article>
+          <article class="system-card type-card">
+            <span class="card-label">02 · TYPOGRAPHY</span>
+            <h3>Iisang malinaw na hierarchy.</h3>
+            <p>Inter ang pangunahing font; DM Sans ang fallback para manatiling malinis at madaling basahin.</p>
+            <div class="type-sample"><span>Page title · 28–34px</span><strong>Store overview</strong></div>
+            <div class="type-sample"><span>Section title · 16–20px</span><b>Mga pinakabagong order</b></div>
+            <div class="type-sample"><span>Body text · 12–14px</span><p>Tingnan ang galaw ng iyong store.</p></div>
+            <div class="type-sample"><span>Label · 9–11px, bold</span><small>TOTAL SALES</small></div>
+          </article>
+          <article class="system-card components-card">
+            <span class="card-label">03 · COMPONENTS</span>
+            <h3>Pamilyar ang kilos sa bawat page.</h3>
+            <p>Kapag pareho ang itsura ng magkakaparehong control, mas madaling malaman kung saan mag-click.</p>
+            <div class="component-demo">
+              <span class="demo-primary">+ Gumawa</span>
+              <span class="demo-outline">Kanselahin</span>
+              <span class="demo-status"><i></i> Completed</span>
+              <span class="demo-field">Maghanap… <b>⌕</b></span>
+            </div>
+            <ul class="plain-list">
+              <li><span>Buttons</span> Asul para sa pangunahing aksyon; outline para sa pangalawa.</li>
+              <li><span>Status</span> Kulay at label para madaling makita ang lagay ng order.</li>
+              <li><span>Cards</span> Puting surface, banayad na border, at consistent na pagitan.</li>
+            </ul>
+          </article>
+          <article class="system-card layout-card">
+            <span class="card-label">04 · LAYOUT & ACCESSIBILITY</span>
+            <h3>Responsive, hindi lang pang-desktop.</h3>
+            <p>Nananatiling madaling gamitin ang dashboard sa maliit na screen at malinaw ang navigation.</p>
+            <div class="layout-preview"><span class="layout-desktop"><i></i><i></i><i></i><b>Desktop · sidebar + content</b></span><span class="layout-mobile"><i></i><b>Mobile · menu + stacked cards</b></span></div>
+            <ul class="plain-list">
+              <li><span>Responsive</span> Nagiging menu ang sidebar sa mobile; nag-i-stack ang cards.</li>
+              <li><span>Keyboard</span> May visible focus indicator ang interactive controls.</li>
+              <li><span>Feedback</span> May mensahe kapag may kailangang punan o may nagawang aksyon.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="flow-section" id="flow">
+        <div class="page-width">
+          <div class="section-heading flow-heading">
+            <div><p class="eyebrow">03 / HAKBANG-HAKBANG</p><h2>User flow</h2></div>
+            <p>Ganito ang dadaanan mo mula sa unang screen hanggang sa pag-manage ng store.</p>
+          </div>
+
+          <div class="flow-card">
+            <div class="flow-topline"><span>01</span><div><strong>Pumasok sa Nexora</strong><small>Sign up kung bago ka; sign in kung may demo account ka na.</small></div></div>
+            <div class="entry-branches">
+              <article class="flow-branch signup-branch"><span class="branch-tag">BAGONG USER</span><strong>Gumawa ng account</strong><p>Ilagay ang pangalan, email, at demo password.</p></article>
+              <article class="flow-branch login-branch"><span class="branch-tag">MAY ACCOUNT NA</span><strong>Mag-sign in</strong><p>Email na ginamit sa account sa browser na ito.</p></article>
+            </div>
+            <div class="merge-line"><span>Pagkatapos ng sign up, o kung kailangan pang mag-set up ng workspace</span></div>
+            <div class="onboarding-flow">
+              <article class="flow-step"><span>02 · SETUP 1/3</span><strong>Pangalan ng workspace</strong><small>Hal. Sunday Goods</small></article>
+              <article class="flow-step"><span>03 · SETUP 2/3</span><strong>Uri ng negosyo</strong><small>Retail, studio, services, food, o iba pa</small></article>
+              <article class="flow-step"><span>04 · SETUP 3/3</span><strong>Focus at currency</strong><small>Pumili ng goal at pera ng store</small></article>
+            </div>
+            <div class="flow-down"><span>Gumawa ng workspace</span></div>
+            <article class="dashboard-step"><span class="dashboard-icon">▦</span><div><span>05 · IYONG HOME BASE</span><strong>Dashboard</strong><small>Sales overview, summary ng orders, at shortcut sa mga susunod na gawain.</small></div><span class="dashboard-pill">Nagsisimula na rito</span></article>
+            <div class="flow-down"><span>Pumili ng section mula sa sidebar</span></div>
+            <div class="destination-grid">
+              <article><span>01</span><strong>Dashboard</strong><small>Buod ng store</small></article>
+              <article><span>02</span><strong>Orders</strong><small>Gumawa at mag-update</small></article>
+              <article><span>03</span><strong>Products</strong><small>Tingnan ang inventory</small></article>
+              <article><span>04</span><strong>Analytics</strong><small>Suriin ang resulta</small></article>
+              <article><span>05</span><strong>Payments</strong><small>Tingnan ang bayad</small></article>
+              <article><span>06</span><strong>Settings</strong><small>I-edit ang workspace</small></article>
+            </div>
+            <div class="storage-note"><span aria-hidden="true">ⓘ</span><p><strong>Mahalagang tandaan:</strong> Demo ang account at data. Naka-save lang ang workspace, orders, at products sa local storage ng browser na ito. Hindi ito totoong login o cloud database, kaya hindi awtomatikong makikita sa ibang device.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section page-width" id="decisions">
+        <div class="section-heading">
+          <div><p class="eyebrow">04 / BAKIT GANITO?</p><h2>Mga design decision</h2></div>
+          <p>Mga simpleng dahilan sa likod ng itsura at daloy.</p>
+        </div>
+        <div class="decision-grid">
+          <article><span>01</span><div><h3>Dashboard muna</h3><p>Pagkabukas ng workspace, agad makikita ang buod bago pumunta sa mas detalyadong records.</p></div></article>
+          <article><span>02</span><div><h3>Setup na paunti-unti</h3><p>Tatlong maikling hakbang para makapagsimula nang hindi sabay-sabay ang mga tanong.</p></div></article>
+          <article><span>03</span><div><h3>Iisang navigation</h3><p>Pare-pareho ang sidebar sa mga section para madaling magpalipat-lipat ng gawain.</p></div></article>
+          <article><span>04</span><div><h3>Demo na may malinaw na limitasyon</h3><p>May notice na browser-local lang ang data para hindi mapagkamalang live service ang prototype.</p></div></article>
+        </div>
+      </section>
+
+      <section class="closing">
+        <div class="page-width closing-inner"><div><p class="eyebrow">READY TO EXPLORE?</p><h2>Subukan ang flow sa Nexora mismo.</h2><p>Gumawa ng demo account at sundan ang onboarding papunta sa workspace.</p></div><a class="button button-light" href="../">Buksan ang Nexora demo <span aria-hidden="true">↗</span></a></div>
+      </section>
+    </main>
+    <footer class="site-footer page-width"><a class="footer-brand" href="#top">Nexora <span>· Case study</span></a><span>Standalone na gabay · hindi bahagi ng store app</span><a href="#top">Bumalik sa taas ↑</a></footer>
+  </body>
+</html>
