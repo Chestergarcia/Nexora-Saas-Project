@@ -1,14 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import { createRoot } from 'react-dom/client'
 import {
+  Activity,
   ArrowDownToLine,
   ArrowRight,
   ArrowUpRight,
+  BarChart3,
   Bell,
   Check,
+  CircleDollarSign,
   ChevronDown,
   CircleHelp,
   CreditCard,
+  Headphones,
   LayoutDashboard,
   LogOut,
   Menu,
@@ -17,7 +21,9 @@ import {
   Plus,
   Search,
   Settings,
+  ShieldCheck,
   ShoppingBag,
+  ShoppingCart,
   SlidersHorizontal,
   Sparkles,
   Store,
@@ -124,8 +130,8 @@ function AuthArtwork() {
   )
 }
 
-function AuthScreen({ onAccount, onComplete, existingAccount }) {
-  const [mode, setMode] = useState(existingAccount ? 'login' : 'signup')
+function AuthScreen({ onAccount, onComplete, existingAccount, initialMode, onBack }) {
+  const [mode, setMode] = useState(initialMode || (existingAccount ? 'login' : 'signup'))
   const [notice, setNotice] = useState('')
   const [error, setError] = useState('')
   const [form, setForm] = useState({ name: '', email: '', password: '' })
@@ -170,6 +176,7 @@ function AuthScreen({ onAccount, onComplete, existingAccount }) {
       <section className="auth-panel">
         <div className="auth-mobile-brand"><Brand /></div>
         <div className="auth-form-wrap">
+          <button className="form-inline-link auth-back" type="button" onClick={onBack}><ArrowRight size={13} /> Back to Nexora</button>
           {mode === 'signup' && <><span className="form-eyebrow">GET STARTED</span><h1>Create your account</h1><p className="form-subtitle">A better way to run your business starts here.</p></>}
           {mode === 'login' && <><span className="form-eyebrow">WELCOME BACK</span><h1>Sign in to Nexora</h1><p className="form-subtitle">Pick up right where you left off.</p></>}
           {mode === 'forgot' && <><span className="form-eyebrow">ACCOUNT RECOVERY</span><h1>Forgot your password?</h1><p className="form-subtitle">Enter the email you used to create your account.</p></>}
@@ -373,13 +380,158 @@ function CreateDialog({ type, onClose, onCreate, currency }) {
   return <div className="modal-backdrop" onMouseDown={event => { if (event.target === event.currentTarget) onClose() }}><form className="dialog-card" onSubmit={submit}><div className="modal-heading"><div><h2>{isProduct ? 'Add a product' : 'Create a new order'}</h2><p>{isProduct ? 'Add a new item to your catalog.' : 'Add an order to your workspace.'}</p></div><button className="icon-button" type="button" aria-label="Close dialog" onClick={onClose}><X size={19} /></button></div><label>{isProduct ? 'Product name' : 'Customer name'}<input autoFocus value={name} onChange={event => setName(event.target.value)} placeholder={isProduct ? 'e.g. Everyday Tote' : 'e.g. Alex Morgan'} required /></label><label>{isProduct ? 'Category' : 'Product'}<input value={secondary} onChange={event => setSecondary(event.target.value)} placeholder={isProduct ? 'e.g. Accessories' : 'e.g. Nexora Essentials'} required /></label><div className="dialog-row"><label>{isProduct ? `Price (${currency})` : `Total (${currency})`}<input type="number" min="0" step="0.01" value={price} onChange={event => setPrice(event.target.value)} required={isProduct} placeholder="0.00" /></label>{isProduct && <label>Stock<input type="number" min="0" step="1" value={stock} onChange={event => setStock(event.target.value)} placeholder="0" required /></label>}</div><div className="modal-actions"><button className="button button-outline" type="button" onClick={onClose}>Cancel</button><button className="button button-primary" type="submit">{isProduct ? 'Add product' : 'Create order'}</button></div></form></div>
 }
 
+function LandingPage({ onStart, onLogin }) {
+  const [menuOpen, setMenuOpen] = useState(false)
+  const [contactNotice, setContactNotice] = useState('')
+
+  function submitContact(event) {
+    event.preventDefault()
+    const form = new FormData(event.currentTarget)
+    const subject = `Nexora inquiry from ${form.get('name')}`
+    const body = `Name: ${form.get('name')}\nEmail: ${form.get('email')}\n\n${form.get('message')}`
+    setContactNotice('Your email app should open with your message ready to send.')
+    window.location.href = `mailto:hello@nexora.app?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+  }
+
+  function closeMenu() {
+    setMenuOpen(false)
+  }
+
+  const features = [
+    { icon: Activity, title: 'Real-time analytics', text: 'Understand sales, spot trends, and make your next move with clear, up-to-date reports.' },
+    { icon: ShoppingCart, title: 'Order management', text: 'Keep every order organized, from the first click to fulfillment, in one simple view.' },
+    { icon: Users, title: 'Customer insights', text: 'See purchase history and customer activity so you can build stronger relationships.' },
+    { icon: Package, title: 'Product & inventory', text: 'Track your catalog and stock levels without juggling another spreadsheet.' },
+    { icon: CircleDollarSign, title: 'Payments overview', text: 'Get a clearer picture of revenue, payment status, and what your store is earning.' },
+    { icon: ShieldCheck, title: 'One calm workspace', text: 'Bring the moving parts of your business together in a secure, focused workspace.' },
+  ]
+
+  const plans = [
+    { name: 'Starter', price: '$0', description: 'For freelancers and new stores getting organized.', features: ['1 workspace', 'Order and product tracking', 'Essential sales overview'], featured: false },
+    { name: 'Growth', price: '$19', description: 'For growing brands ready for a clearer picture.', features: ['Everything in Starter', 'Advanced analytics', 'Customer insights', 'Priority support'], featured: true },
+    { name: 'Scale', price: '$49', description: 'For established teams managing more each day.', features: ['Everything in Growth', 'Multiple workspaces', 'Team-ready workflows', 'Dedicated support'], featured: false },
+  ]
+
+  return (
+    <main className="landing-page">
+      <header className="landing-header">
+        <a className="landing-brand" href="#home" aria-label="Nexora home" onClick={closeMenu}><Brand /></a>
+        <button className="landing-menu-toggle" type="button" aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'} aria-expanded={menuOpen} onClick={() => setMenuOpen(open => !open)}>
+          {menuOpen ? <X size={21} /> : <Menu size={21} />}
+        </button>
+        <nav className={`landing-nav${menuOpen ? ' is-open' : ''}`} aria-label="Main navigation">
+          <a href="#home" onClick={closeMenu}>Home</a>
+          <a href="#features" onClick={closeMenu}>Features</a>
+          <a href="#pricing" onClick={closeMenu}>Pricing</a>
+          <a href="#contact" onClick={closeMenu}>Contact</a>
+          <div className="landing-nav-mobile-actions">
+            <button type="button" className="landing-login" onClick={() => { closeMenu(); onLogin() }}>Log in</button>
+            <button type="button" className="button button-primary" onClick={() => { closeMenu(); onStart() }}>Start for free <ArrowRight size={15} /></button>
+          </div>
+        </nav>
+        <div className="landing-header-actions">
+          <button type="button" className="landing-login" onClick={onLogin}>Log in</button>
+          <button type="button" className="button button-primary" onClick={onStart}>Start for free <ArrowRight size={15} /></button>
+        </div>
+      </header>
+
+      <section className="landing-hero" id="home">
+        <div className="landing-hero-copy">
+          <span className="landing-eyebrow"><span /> YOUR BUSINESS, IN SYNC</span>
+          <h1>All your store performance.<br /><span>One smart dashboard.</span></h1>
+          <p>Track sales, manage orders, and understand your customers—all from one clear, easy-to-use workspace.</p>
+          <div className="landing-hero-actions">
+            <button type="button" className="button button-primary" onClick={onStart}>Start your free workspace <ArrowRight size={16} /></button>
+            <a className="landing-text-link" href="#features">Explore features <ArrowDownToLine size={15} /></a>
+          </div>
+          <div className="landing-proof"><span className="landing-avatar-stack"><i>J</i><i>M</i><i>A</i><i>+</i></span><span><strong>Built for the people behind the business.</strong><small>One workspace to keep your next move in view.</small></span></div>
+        </div>
+        <div className="landing-hero-visual" aria-label="Preview of the Nexora store analytics dashboard">
+          <div className="hero-orbit hero-orbit-one" /><div className="hero-orbit hero-orbit-two" />
+          <div className="landing-dashboard">
+            <div className="landing-dash-sidebar"><Brand /><span className="dash-side-active"><LayoutDashboard size={14} /> Overview</span><span><ShoppingBag size={14} /> Orders</span><span><Package size={14} /> Products</span><span><BarChart3 size={14} /> Analytics</span><span><Settings size={14} /> Settings</span><div className="dash-side-help"><CircleHelp size={14} /> Help center</div></div>
+            <div className="landing-dash-content">
+              <div className="landing-dash-top"><div><small>Monday, November 12</small><strong>Good morning, Alex <span>✦</span></strong></div><span className="landing-dash-profile">A</span></div>
+              <div className="landing-dash-heading"><div><strong>Store overview</strong><small>Here's what's happening with your store.</small></div><span className="landing-period">Last 30 days <ChevronDown size={12} /></span></div>
+              <div className="landing-stat-grid">
+                <div className="landing-stat"><small>Total sales</small><strong>$15,490</strong><span>↗ 12.8% <i>vs. last month</i></span></div>
+                <div className="landing-stat"><small>Total orders</small><strong>1,248</strong><span>↗ 8.2% <i>vs. last month</i></span></div>
+                <div className="landing-stat"><small>Avg. order value</small><strong>$52.40</strong><span>↗ 4.3% <i>vs. last month</i></span></div>
+              </div>
+              <div className="landing-chart-card"><div className="landing-chart-title"><span><strong>Sales overview</strong><small>Revenue over time</small></span><span className="chart-legend"><i /> Revenue</span></div><div className="landing-chart"><div className="chart-y-labels"><span>$6k</span><span>$4k</span><span>$2k</span><span>$0</span></div><svg viewBox="0 0 520 156" preserveAspectRatio="none" role="img" aria-label="Sales trending upward over six months"><defs><linearGradient id="salesFill" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stopColor="#2b74d4" stopOpacity=".24" /><stop offset="100%" stopColor="#2b74d4" stopOpacity=".01" /></linearGradient></defs><path className="chart-fill" d="M0 126 C28 115 38 93 66 103 S103 126 132 95 S170 60 198 79 S230 114 260 82 S300 72 326 60 S362 78 390 49 S425 58 454 32 S489 42 520 15 V156 H0Z" /><path className="chart-line" d="M0 126 C28 115 38 93 66 103 S103 126 132 95 S170 60 198 79 S230 114 260 82 S300 72 326 60 S362 78 390 49 S425 58 454 32 S489 42 520 15" /></svg></div><div className="landing-chart-months"><span>Jun</span><span>Jul</span><span>Aug</span><span>Sep</span><span>Oct</span><span>Nov</span></div></div>
+              <div className="landing-dash-bottom"><span><i className="dash-dot green" /> Store status <strong>Looking good</strong></span><span>Updated just now <ArrowUpRight size={13} /></span></div>
+            </div>
+          </div>
+          <div className="landing-floating-card"><span className="floating-icon"><ArrowUpRight size={16} /></span><span><small>Revenue this month</small><strong>$15,490</strong></span><b>+12.8%</b></div>
+          <div className="landing-visual-caption"><span><i /> All your numbers, in one place</span><span>Live overview</span></div>
+        </div>
+      </section>
+
+      <section className="landing-trust" aria-label="Made for growing businesses">
+        <p>MADE FOR PEOPLE BUILDING WHAT'S NEXT</p>
+        <div className="landing-trust-logos"><span>Retail</span><span>Creators</span><span>Food &amp; drink</span><span>INDEPENDENT</span><span>Growing teams</span></div>
+      </section>
+
+      <section className="landing-benefit">
+        <div className="benefit-copy"><span className="landing-eyebrow">LESS BUSYWORK. MORE MOMENTUM.</span><h2>Simple solutions<br />and clear success.</h2><p>Nexora brings your everyday store operations into focus. Spend less time switching tools and more time building a business you love.</p><button className="button button-outline" type="button" onClick={onStart}>Try Nexora for free <ArrowRight size={15} /></button></div>
+        <div className="benefit-visual">
+          <div className="benefit-window"><div className="benefit-window-head"><Brand /><span>•••</span></div><div className="benefit-metrics"><span><i className="mini-ring ring-blue" />Sales</span><span><i className="mini-ring ring-violet" />Orders</span><span><i className="mini-ring ring-cyan" />Customers</span></div><div className="benefit-wave"><svg viewBox="0 0 460 100" preserveAspectRatio="none" role="img" aria-label="A sample sales trend chart"><path d="M0 76 C33 67 40 36 78 48 S123 75 153 42 S199 25 230 51 S273 61 305 31 S354 41 382 19 S425 31 460 8" /></svg></div><div className="benefit-table"><span>Recent orders</span><span>Everyday Tote <i>Completed</i></span><span>Classic Hoodie <i>Processing</i></span><span>Nexora Essentials <i>Completed</i></span></div></div>
+          <div className="benefit-revenue"><small>Total revenue</small><strong>$15,490</strong><span>↗ 12.8% this month</span></div>
+          <div className="benefit-sparkle"><Sparkles size={25} /></div>
+        </div>
+      </section>
+
+      <section className="landing-features" id="features">
+        <div className="landing-section-heading"><span className="landing-eyebrow">ONE WORKSPACE. EVERY ADVANTAGE.</span><h2>Everything you need to<br />move your business forward.</h2><p>Thoughtful tools for the details that keep your store moving.</p></div>
+        <div className="landing-feature-grid">{features.map(({ icon: Icon, title, text }, index) => <article className="landing-feature-card" key={title}><span className={`feature-icon feature-icon-${index + 1}`}><Icon size={20} /></span><h3>{title}</h3><p>{text}</p><a href="#contact">Learn more <ArrowRight size={14} /></a></article>)}</div>
+        <div className="landing-feature-note"><ShieldCheck size={18} /><span><strong>Designed to keep things clear.</strong> Your demo workspace is saved privately in this browser.</span></div>
+      </section>
+
+      <section className="landing-testimonials">
+        <div className="landing-section-heading"><span className="landing-eyebrow">GOOD WORK, MADE SIMPLER</span><h2>Small business deserves<br />a big-picture view.</h2><p>Practical tools to help you stay focused on what matters.</p></div>
+        <div className="landing-quote-grid">
+          <article><span className="landing-benefit-icon"><BarChart3 size={18} /></span><h3>Know what's working</h3><p>See your sales and order trends in one simple overview, without hunting through reports.</p></article>
+          <article><span className="landing-benefit-icon"><ShoppingBag size={18} /></span><h3>Keep the day moving</h3><p>Bring orders and products together, so the important details are easier to find.</p></article>
+          <article><span className="landing-benefit-icon"><Sparkles size={18} /></span><h3>Make room to grow</h3><p>Spend less energy switching tools and more time on your next business idea.</p></article>
+        </div>
+      </section>
+
+      <section className="landing-pricing" id="pricing">
+        <div className="landing-section-heading"><span className="landing-eyebrow">SIMPLE, TRANSPARENT PRICING</span><h2>Choose your pace.<br />Grow on your terms.</h2><p>Start for free. Upgrade when it makes sense for your business.</p><small className="pricing-demo-label">Sample plan pricing for this demo</small></div>
+        <div className="landing-pricing-grid">{plans.map(plan => <article className={`landing-plan${plan.featured ? ' landing-plan-featured' : ''}`} key={plan.name}>{plan.featured && <span className="plan-badge">MOST POPULAR</span>}<span className="plan-name">{plan.name}</span><p>{plan.description}</p><div className="plan-price"><strong>{plan.price}</strong><span>/ month</span></div><button type="button" className={`button ${plan.featured ? 'button-primary' : 'button-outline'}`} onClick={onStart}>Choose {plan.name} <ArrowRight size={15} /></button><small className="plan-includes">INCLUDES</small><ul>{plan.features.map(feature => <li key={feature}><Check size={15} />{feature}</li>)}</ul></article>)}</div>
+        <p className="pricing-footnote">Illustrative pricing only. Subscriptions and billing are not connected in this demo.</p>
+      </section>
+
+      <section className="landing-contact" id="contact">
+        <div className="contact-copy"><span className="landing-eyebrow">WE'RE HERE TO HELP</span><h2>Ready to grow<br />your brand?</h2><p>Have a question or want to learn more? Send us a note and we'll help you find your next step.</p><a href="mailto:hello@nexora.app"><Headphones size={17} /> hello@nexora.app <span className="contact-demo-label">Demo inbox — replace before launch</span></a></div>
+        <form className="landing-contact-form" onSubmit={submitContact}>
+          <div className="contact-form-heading"><strong>Let's talk</strong><small>Tell us a little about what you need.</small></div>
+          <label>Your name<input name="name" autoComplete="name" placeholder="Alex Morgan" required /></label>
+          <label>Email address<input name="email" type="email" autoComplete="email" placeholder="you@company.com" required /></label>
+          <label>How can we help?<textarea name="message" rows="3" placeholder="Write your message..." required /></label>
+          {contactNotice && <p className="contact-notice" role="status">{contactNotice}</p>}
+          <button className="button button-primary" type="submit">Open email to send <ArrowRight size={15} /></button>
+          <small className="contact-form-note">This opens your email app; your message is not sent automatically.</small>
+        </form>
+      </section>
+
+      <footer className="landing-footer">
+        <a className="landing-brand" href="#home" aria-label="Nexora home"><Brand /></a>
+        <p>A little more clarity for everything you're building.</p>
+        <nav aria-label="Footer navigation"><a href="#features">Features</a><a href="#pricing">Pricing</a><a href="#contact">Contact</a><button type="button" onClick={onLogin}>Log in</button></nav>
+        <small>© 2026 Nexora. All rights reserved.</small>
+      </footer>
+    </main>
+  )
+}
+
 function App() {
   const [data, setData] = useState(readData)
+  const [authMode, setAuthMode] = useState('signup')
   const [stage, setStage] = useState(() => {
     const initial = readData()
-    if (!initial.account) return 'auth'
-    if (!initial.workspaces.length) return 'onboarding'
-    return sessionStorage.getItem('nexora.demo-session') === 'active' ? 'app' : 'auth'
+    if (initial.workspaces.length && sessionStorage.getItem('nexora.demo-session') === 'active') return 'app'
+    return 'landing'
   })
   const [page, setPage] = useState('Dashboard')
   const [search, setSearch] = useState('')
@@ -471,7 +623,7 @@ function App() {
 
   function logout() {
     sessionStorage.removeItem('nexora.demo-session')
-    setStage('auth')
+    setStage('landing')
     setPage('Dashboard')
     setSearch('')
     setDialog(null)
@@ -486,7 +638,8 @@ function App() {
     return <SettingsPage workspace={active} account={data.account} onSave={({ account, ...workspaceUpdate }) => { updateWorkspace(active.id, workspaceUpdate); setData(current => ({ ...current, account })); setToast('Workspace settings saved') }} />
   }
 
-  if (stage === 'auth') return <AuthScreen existingAccount={data.account} onAccount={setAccount} onComplete={() => { sessionStorage.setItem('nexora.demo-session', 'active'); setStage(data.workspaces.length ? 'app' : 'onboarding') }} />
+  if (stage === 'landing') return <LandingPage onStart={() => { setAuthMode('signup'); setStage('auth') }} onLogin={() => { setAuthMode('login'); setStage('auth') }} />
+  if (stage === 'auth') return <AuthScreen initialMode={authMode} onBack={() => setStage('landing')} existingAccount={data.account} onAccount={setAccount} onComplete={() => { sessionStorage.setItem('nexora.demo-session', 'active'); setStage(data.workspaces.length ? 'app' : 'onboarding') }} />
   if (stage === 'onboarding') return <Onboarding onFinish={finishOnboarding} />
 
   return <div className="app-shell"><Sidebar page={page} setPage={setPage} workspaces={data.workspaces} active={active} onSelectWorkspace={id => { setData(current => ({ ...current, activeWorkspaceId: id })); setPage('Dashboard'); setSearch('') }} onAddWorkspace={() => setDialog('workspace')} profile={data.account} onLogout={logout} open={mobileNav} onClose={() => setMobileNav(false)} /><main className="main-area"><Header page={page} search={search} setSearch={setSearch} onMenu={() => setMobileNav(true)} onLogout={logout} /><div className="page-content"><PageIntro page={page} onCreate={() => setDialog(page === 'Products' ? 'product' : 'order')} onExport={exportOrders} />{content()}<footer className="page-footer"><span>© 2024 Nexora. All rights reserved.</span><span>Your workspace is saved on this device.</span></footer></div></main>{dialog && (dialog === 'workspace' ? <Onboarding onCancel={() => setDialog(null)} onFinish={details => { addWorkspace(details); setDialog(null) }} /> : <CreateDialog type={dialog} onClose={() => setDialog(null)} onCreate={createRecord} currency={currency} />)}{toast && <div className="toast" role="status"><Check size={16} />{toast}<button type="button" onClick={() => setToast('')} aria-label="Dismiss notification"><X size={15} /></button></div>}</div>
