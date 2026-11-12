@@ -2,10 +2,11 @@
 
 An independent Nexora store-management demo and responsive product landing page. This project is separate from the Chester portfolio repository.
 
-The home page includes feature, sample pricing, and contact sections. Starting or logging in opens
-the existing browser-only workspace demo; accounts and workspace data are not backed by a server.
-The prices are illustrative, and the contact form prepares a message in the visitor's email app
-without sending it automatically. Replace the demo inbox (`hello@nexora.app`) before publishing.
+The marketing site has separate Home, Features, Pricing, and Contact pages, navigated through
+GitHub Pages-compatible hash routes. Starting or logging in opens the existing browser-only
+workspace demo; accounts and workspace data are not backed by a server. Pricing is illustrative,
+and the contact form prepares a message in the visitor's email app without sending it automatically.
+Replace the demo inbox (`hello@nexora.app`) before publishing.
 
 ## Run locally
 

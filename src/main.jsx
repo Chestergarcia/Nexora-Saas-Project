@@ -380,9 +380,28 @@ function CreateDialog({ type, onClose, onCreate, currency }) {
   return <div className="modal-backdrop" onMouseDown={event => { if (event.target === event.currentTarget) onClose() }}><form className="dialog-card" onSubmit={submit}><div className="modal-heading"><div><h2>{isProduct ? 'Add a product' : 'Create a new order'}</h2><p>{isProduct ? 'Add a new item to your catalog.' : 'Add an order to your workspace.'}</p></div><button className="icon-button" type="button" aria-label="Close dialog" onClick={onClose}><X size={19} /></button></div><label>{isProduct ? 'Product name' : 'Customer name'}<input autoFocus value={name} onChange={event => setName(event.target.value)} placeholder={isProduct ? 'e.g. Everyday Tote' : 'e.g. Alex Morgan'} required /></label><label>{isProduct ? 'Category' : 'Product'}<input value={secondary} onChange={event => setSecondary(event.target.value)} placeholder={isProduct ? 'e.g. Accessories' : 'e.g. Nexora Essentials'} required /></label><div className="dialog-row"><label>{isProduct ? `Price (${currency})` : `Total (${currency})`}<input type="number" min="0" step="0.01" value={price} onChange={event => setPrice(event.target.value)} required={isProduct} placeholder="0.00" /></label>{isProduct && <label>Stock<input type="number" min="0" step="1" value={stock} onChange={event => setStock(event.target.value)} placeholder="0" required /></label>}</div><div className="modal-actions"><button className="button button-outline" type="button" onClick={onClose}>Cancel</button><button className="button button-primary" type="submit">{isProduct ? 'Add product' : 'Create order'}</button></div></form></div>
 }
 
+function getLandingRoute() {
+  const route = window.location.hash.replace(/^#\/?/, '').split('/')[0]
+  return ['features', 'pricing', 'contact'].includes(route) ? route : 'home'
+}
+
 function LandingPage({ onStart, onLogin }) {
   const [menuOpen, setMenuOpen] = useState(false)
   const [contactNotice, setContactNotice] = useState('')
+  const [route, setRoute] = useState(getLandingRoute)
+
+  useEffect(() => {
+    function updateRoute() {
+      setRoute(getLandingRoute())
+    }
+    window.addEventListener('hashchange', updateRoute)
+    return () => window.removeEventListener('hashchange', updateRoute)
+  }, [])
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+    document.title = route === 'home' ? 'Nexora — Your business, in sync' : `${route[0].toUpperCase()}${route.slice(1)} — Nexora`
+  }, [route])
 
   function submitContact(event) {
     event.preventDefault()
@@ -415,15 +434,15 @@ function LandingPage({ onStart, onLogin }) {
   return (
     <main className="landing-page">
       <header className="landing-header">
-        <a className="landing-brand" href="#home" aria-label="Nexora home" onClick={closeMenu}><Brand /></a>
+        <a className="landing-brand" href="#/" aria-label="Nexora home" onClick={closeMenu}><Brand /></a>
         <button className="landing-menu-toggle" type="button" aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'} aria-expanded={menuOpen} onClick={() => setMenuOpen(open => !open)}>
           {menuOpen ? <X size={21} /> : <Menu size={21} />}
         </button>
         <nav className={`landing-nav${menuOpen ? ' is-open' : ''}`} aria-label="Main navigation">
-          <a href="#home" onClick={closeMenu}>Home</a>
-          <a href="#features" onClick={closeMenu}>Features</a>
-          <a href="#pricing" onClick={closeMenu}>Pricing</a>
-          <a href="#contact" onClick={closeMenu}>Contact</a>
+          <a href="#/" aria-current={route === 'home' ? 'page' : undefined} onClick={closeMenu}>Home</a>
+          <a href="#/features" aria-current={route === 'features' ? 'page' : undefined} onClick={closeMenu}>Features</a>
+          <a href="#/pricing" aria-current={route === 'pricing' ? 'page' : undefined} onClick={closeMenu}>Pricing</a>
+          <a href="#/contact" aria-current={route === 'contact' ? 'page' : undefined} onClick={closeMenu}>Contact</a>
           <div className="landing-nav-mobile-actions">
             <button type="button" className="landing-login" onClick={() => { closeMenu(); onLogin() }}>Log in</button>
             <button type="button" className="button button-primary" onClick={() => { closeMenu(); onStart() }}>Start for free <ArrowRight size={15} /></button>
@@ -435,6 +454,7 @@ function LandingPage({ onStart, onLogin }) {
         </div>
       </header>
 
+      {route === 'home' ? <>
       <section className="landing-hero" id="home">
         <div className="landing-hero-copy">
           <span className="landing-eyebrow"><span /> YOUR BUSINESS, IN SYNC</span>
@@ -442,7 +462,7 @@ function LandingPage({ onStart, onLogin }) {
           <p>Track sales, manage orders, and understand your customers—all from one clear, easy-to-use workspace.</p>
           <div className="landing-hero-actions">
             <button type="button" className="button button-primary" onClick={onStart}>Start your free workspace <ArrowRight size={16} /></button>
-            <a className="landing-text-link" href="#features">Explore features <ArrowDownToLine size={15} /></a>
+            <a className="landing-text-link" href="#/features">Explore features <ArrowDownToLine size={15} /></a>
           </div>
           <div className="landing-proof"><span className="landing-avatar-stack"><i>J</i><i>M</i><i>A</i><i>+</i></span><span><strong>Built for the people behind the business.</strong><small>One workspace to keep your next move in view.</small></span></div>
         </div>
@@ -483,7 +503,7 @@ function LandingPage({ onStart, onLogin }) {
 
       <section className="landing-features" id="features">
         <div className="landing-section-heading"><span className="landing-eyebrow">ONE WORKSPACE. EVERY ADVANTAGE.</span><h2>Everything you need to<br />move your business forward.</h2><p>Thoughtful tools for the details that keep your store moving.</p></div>
-        <div className="landing-feature-grid">{features.map(({ icon: Icon, title, text }, index) => <article className="landing-feature-card" key={title}><span className={`feature-icon feature-icon-${index + 1}`}><Icon size={20} /></span><h3>{title}</h3><p>{text}</p><a href="#contact">Learn more <ArrowRight size={14} /></a></article>)}</div>
+        <div className="landing-feature-grid">{features.map(({ icon: Icon, title, text }, index) => <article className="landing-feature-card" key={title}><span className={`feature-icon feature-icon-${index + 1}`}><Icon size={20} /></span><h3>{title}</h3><p>{text}</p><a href="#/contact">Learn more <ArrowRight size={14} /></a></article>)}</div>
         <div className="landing-feature-note"><ShieldCheck size={18} /><span><strong>Designed to keep things clear.</strong> Your demo workspace is saved privately in this browser.</span></div>
       </section>
 
@@ -514,15 +534,70 @@ function LandingPage({ onStart, onLogin }) {
           <small className="contact-form-note">This opens your email app; your message is not sent automatically.</small>
         </form>
       </section>
+      </> : <MarketingSubpage route={route} features={features} plans={plans} onStart={onStart} contactNotice={contactNotice} submitContact={submitContact} />}
 
       <footer className="landing-footer">
-        <a className="landing-brand" href="#home" aria-label="Nexora home"><Brand /></a>
+        <a className="landing-brand" href="#/" aria-label="Nexora home"><Brand /></a>
         <p>A little more clarity for everything you're building.</p>
-        <nav aria-label="Footer navigation"><a href="#features">Features</a><a href="#pricing">Pricing</a><a href="#contact">Contact</a><button type="button" onClick={onLogin}>Log in</button></nav>
+        <nav aria-label="Footer navigation"><a href="#/features">Features</a><a href="#/pricing">Pricing</a><a href="#/contact">Contact</a><button type="button" onClick={onLogin}>Log in</button></nav>
         <small>© 2026 Nexora. All rights reserved.</small>
       </footer>
     </main>
   )
+}
+
+function MarketingSubpage({ route, features, plans, onStart, contactNotice, submitContact }) {
+  if (route === 'features') {
+    return <>
+      <section className="landing-subpage-intro">
+        <span className="landing-eyebrow">ONE WORKSPACE. EVERY ADVANTAGE.</span>
+        <h1>Tools that keep your<br /><span>business moving.</span></h1>
+        <p>Get a clearer view of sales, orders, products, and customers without adding more busywork.</p>
+      </section>
+      <section className="landing-features">
+        <div className="landing-feature-grid">{features.map(({ icon: Icon, title, text }, index) => <article className="landing-feature-card" key={title}><span className={`feature-icon feature-icon-${index + 1}`}><Icon size={20} /></span><h2>{title}</h2><p>{text}</p></article>)}</div>
+        <div className="landing-feature-note"><ShieldCheck size={18} /><span><strong>One calm workspace.</strong> Keep your day-to-day store details together and easy to find.</span></div>
+      </section>
+      <section className="landing-page-cta"><div><span className="landing-eyebrow">READY WHEN YOU ARE</span><h2>Bring your next move into focus.</h2><p>Start exploring with a free demo workspace.</p></div><button type="button" className="button button-primary" onClick={onStart}>Start for free <ArrowRight size={15} /></button></section>
+    </>
+  }
+
+  if (route === 'pricing') {
+    return <>
+      <section className="landing-subpage-intro">
+        <span className="landing-eyebrow">SIMPLE, TRANSPARENT PRICING</span>
+        <h1>Choose your pace.<br /><span>Grow on your terms.</span></h1>
+        <p>Start with a free demo, then explore sample plans designed around different stages of business.</p>
+      </section>
+      <section className="landing-pricing">
+        <div className="landing-section-heading"><small className="pricing-demo-label">Sample plan pricing for this demo</small></div>
+        <div className="landing-pricing-grid">{plans.map(plan => <article className={`landing-plan${plan.featured ? ' landing-plan-featured' : ''}`} key={plan.name}>{plan.featured && <span className="plan-badge">MOST POPULAR</span>}<span className="plan-name">{plan.name}</span><p>{plan.description}</p><div className="plan-price"><strong>{plan.price}</strong><span>/ month</span></div><button type="button" className={`button ${plan.featured ? 'button-primary' : 'button-outline'}`} onClick={onStart}>Choose {plan.name} <ArrowRight size={15} /></button><small className="plan-includes">INCLUDES</small><ul>{plan.features.map(feature => <li key={feature}><Check size={15} />{feature}</li>)}</ul></article>)}</div>
+        <p className="pricing-footnote">Illustrative pricing only. Subscriptions and billing are not connected in this demo.</p>
+      </section>
+      <section className="landing-faq"><div className="landing-section-heading"><span className="landing-eyebrow">GOOD TO KNOW</span><h2>Frequently asked questions</h2></div><div className="landing-faq-list"><details><summary>Can I try Nexora for free?</summary><p>Yes. The demo workspace is free to explore and does not ask for payment details.</p></details><details><summary>Are these plans available for purchase?</summary><p>Not yet. The prices and plan features are examples; checkout and subscriptions are not connected.</p></details><details><summary>Where is my demo data stored?</summary><p>Demo accounts and workspace data are saved locally in your browser, not on a server.</p></details></div></section>
+    </>
+  }
+
+  return <>
+    <section className="landing-subpage-intro">
+      <span className="landing-eyebrow">WE'RE HERE TO HELP</span>
+      <h1>Let's make your<br /><span>next step clearer.</span></h1>
+      <p>Questions, feedback, or just want to learn more? Send us a message.</p>
+    </section>
+    <section className="landing-contact" id="contact">
+      <div className="contact-copy"><span className="landing-eyebrow">GET IN TOUCH</span><h2>Tell us what<br />you need.</h2><p>Fill out the form and your email app will open with your message ready to send.</p><a href="mailto:hello@nexora.app"><Headphones size={17} /> hello@nexora.app <span className="contact-demo-label">Demo inbox — replace before launch</span></a></div>
+      <form className="landing-contact-form" onSubmit={submitContact}>
+        <div className="contact-form-heading"><strong>Send a message</strong><small>We'd love to hear from you.</small></div>
+        <label>Your name<input name="name" autoComplete="name" placeholder="Alex Morgan" required /></label>
+        <label>Email address<input name="email" type="email" autoComplete="email" placeholder="you@company.com" required /></label>
+        <label>How can we help?<textarea name="message" rows="4" placeholder="Write your message..." required /></label>
+        {contactNotice && <p className="contact-notice" role="status">{contactNotice}</p>}
+        <button className="button button-primary" type="submit">Open email to send <ArrowRight size={15} /></button>
+        <small className="contact-form-note">This opens your email app; your message is not sent automatically.</small>
+      </form>
+    </section>
+    <section className="landing-contact-details"><article><Headphones size={20} /><h2>Email support</h2><p>Use the demo inbox to get in touch. Replace it with your support address before launch.</p><a href="mailto:hello@nexora.app">hello@nexora.app <ArrowRight size={14} /></a></article><article><CircleHelp size={20} /><h2>Need a quick answer?</h2><p>Find plan details and common product questions on our pricing page.</p><a href="#/pricing">Visit pricing <ArrowRight size={14} /></a></article></section>
+  </>
 }
 
 function App() {
