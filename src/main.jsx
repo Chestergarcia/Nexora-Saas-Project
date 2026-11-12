@@ -57,6 +57,13 @@ const seedProducts = [
   { id: 'P-03', name: 'Classic Hoodie', category: 'Apparel', price: 68, stock: 9 },
 ]
 
+const landingPreviewWorkspace = {
+  name: 'Nexora Demo Store',
+  currency: 'USD',
+  orders: seedOrders,
+  products: seedProducts,
+}
+
 const blankData = { account: null, workspaces: [], activeWorkspaceId: null }
 
 function readData() {
@@ -321,6 +328,22 @@ function Dashboard({ workspace, search, onOrders, onStatus, onDelete }) {
   return <><section className="metrics-grid" aria-label="Store metrics">{metrics.map(metric => <MetricCard key={metric.title} {...metric} />)}</section><div className="dashboard-grid"><RevenuePanel currency={currencySymbol(workspace.currency)} totalRevenue={revenue} /><RegionPanel /></div><section className="panel orders-panel"><div className="panel-heading orders-heading"><div><h2>Recent orders</h2><p>You have {orders.length} orders to review.</p></div><button className="text-link" type="button" onClick={onOrders}>View all orders <ArrowRight size={15} /></button></div><OrdersTable orders={visible.slice(0, 5)} onStatus={onStatus} onDelete={onDelete} currency={currencySymbol(workspace.currency)} /></section></>
 }
 
+function LandingDashboardPreview() {
+  return (
+    <div className="landing-dashboard">
+      <aside className="landing-preview-sidebar" aria-hidden="true">
+        <Brand />
+        <nav>{navItems.map(({ name, icon: Icon }) => <span className={name === 'Dashboard' ? 'is-active' : ''} key={name}><Icon size={14} />{name}</span>)}</nav>
+        <span className="landing-preview-help"><CircleHelp size={14} />Help center</span>
+      </aside>
+      <div className="landing-preview-content" aria-hidden="true">
+        <PageIntro page="Dashboard" onCreate={() => {}} onExport={() => {}} />
+        <Dashboard workspace={landingPreviewWorkspace} search="" onOrders={() => {}} onStatus={() => {}} onDelete={() => {}} />
+      </div>
+    </div>
+  )
+}
+
 function filterRecords(items, query) {
   const term = query.trim().toLowerCase()
   return term ? items.filter(item => Object.values(item).some(value => String(value).toLowerCase().includes(term))) : items
@@ -468,21 +491,7 @@ function LandingPage({ onStart, onLogin }) {
         </div>
         <div className="landing-hero-visual" aria-label="Preview of the Nexora store analytics dashboard">
           <div className="hero-orbit hero-orbit-one" /><div className="hero-orbit hero-orbit-two" />
-          <div className="landing-dashboard">
-            <div className="landing-dash-sidebar"><Brand /><span className="dash-side-active"><LayoutDashboard size={14} /> Overview</span><span><ShoppingBag size={14} /> Orders</span><span><Package size={14} /> Products</span><span><BarChart3 size={14} /> Analytics</span><span><Settings size={14} /> Settings</span><div className="dash-side-help"><CircleHelp size={14} /> Help center</div></div>
-            <div className="landing-dash-content">
-              <div className="landing-dash-top"><div><small>Monday, November 12</small><strong>Good morning, Alex <span>✦</span></strong></div><span className="landing-dash-profile">A</span></div>
-              <div className="landing-dash-heading"><div><strong>Store overview</strong><small>Here's what's happening with your store.</small></div><span className="landing-period">Last 30 days <ChevronDown size={12} /></span></div>
-              <div className="landing-stat-grid">
-                <div className="landing-stat"><small>Total sales</small><strong>$15,490</strong><span>↗ 12.8% <i>vs. last month</i></span></div>
-                <div className="landing-stat"><small>Total orders</small><strong>1,248</strong><span>↗ 8.2% <i>vs. last month</i></span></div>
-                <div className="landing-stat"><small>Avg. order value</small><strong>$52.40</strong><span>↗ 4.3% <i>vs. last month</i></span></div>
-              </div>
-              <div className="landing-chart-card"><div className="landing-chart-title"><span><strong>Sales overview</strong><small>Revenue over time</small></span><span className="chart-legend"><i /> Revenue</span></div><div className="landing-chart"><div className="chart-y-labels"><span>$6k</span><span>$4k</span><span>$2k</span><span>$0</span></div><svg viewBox="0 0 520 156" preserveAspectRatio="none" role="img" aria-label="Sales trending upward over six months"><defs><linearGradient id="salesFill" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stopColor="#2b74d4" stopOpacity=".24" /><stop offset="100%" stopColor="#2b74d4" stopOpacity=".01" /></linearGradient></defs><path className="chart-fill" d="M0 126 C28 115 38 93 66 103 S103 126 132 95 S170 60 198 79 S230 114 260 82 S300 72 326 60 S362 78 390 49 S425 58 454 32 S489 42 520 15 V156 H0Z" /><path className="chart-line" d="M0 126 C28 115 38 93 66 103 S103 126 132 95 S170 60 198 79 S230 114 260 82 S300 72 326 60 S362 78 390 49 S425 58 454 32 S489 42 520 15" /></svg></div><div className="landing-chart-months"><span>Jun</span><span>Jul</span><span>Aug</span><span>Sep</span><span>Oct</span><span>Nov</span></div></div>
-              <div className="landing-dash-bottom"><span><i className="dash-dot green" /> Store status <strong>Looking good</strong></span><span>Updated just now <ArrowUpRight size={13} /></span></div>
-            </div>
-          </div>
-          <div className="landing-floating-card"><span className="floating-icon"><ArrowUpRight size={16} /></span><span><small>Revenue this month</small><strong>$15,490</strong></span><b>+12.8%</b></div>
+          <LandingDashboardPreview />
           <div className="landing-visual-caption"><span><i /> All your numbers, in one place</span><span>Live overview</span></div>
         </div>
       </section>
