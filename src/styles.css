@@ -245,3 +245,45 @@ html { scroll-behavior: smooth; scroll-padding-top: 84px; }
   .landing-header { width: calc(100% - 30px); }.landing-hero { padding: 46px 17px 47px; }.landing-hero h1 { font-size: clamp(35px, 9.2vw, 47px); }.landing-hero-copy > p { font-size: 13px; }.landing-hero-actions { flex-direction: column; gap: 15px; margin-top: 22px; }.landing-hero-actions .button { width: min(100%, 300px); }.landing-proof { margin-top: 24px; text-align: left; }.landing-dashboard { min-height: 292px; grid-template-columns: 73px minmax(0, 1fr); border-radius: 8px; }.landing-dash-sidebar { gap: 4px; padding: 12px 5px; }.landing-dash-sidebar .brand { margin: 0 auto 11px; }.landing-dash-sidebar .brand > span { display: none; }.landing-dash-sidebar > span, .dash-side-help { min-height: 27px; gap: 4px; padding: 0 4px; font-size: 6px; }.landing-dash-sidebar > span svg, .dash-side-help svg { width: 11px; height: 11px; }.landing-dash-content { padding: 12px 9px 9px; }.landing-dash-top strong { font-size: 9px; }.landing-dash-heading { margin-top: 14px; }.landing-stat-grid { gap: 4px; margin-top: 9px; }.landing-stat { gap: 4px; padding: 7px 5px; }.landing-stat > small { font-size: 6px; }.landing-stat > strong { font-size: 11px; }.landing-stat > span { font-size: 6px; }.landing-stat > span i { display: none; }.landing-chart-card { margin-top: 7px; padding: 7px 7px 6px; }.landing-chart { height: 76px; }.landing-dash-bottom { margin-top: 7px; font-size: 6px; }.landing-floating-card { right: -7px; gap: 6px; padding: 8px; }.floating-icon { width: 24px; height: 24px; }.landing-floating-card small { font-size: 6px; }.landing-floating-card strong { font-size: 11px; }.landing-floating-card b { font-size: 7px; }.landing-visual-caption { font-size: 7px; }
   .landing-trust { padding: 28px 18px; }.landing-trust > p { margin-bottom: 19px; font-size: 8px; }.landing-trust-logos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 17px 10px; font-size: 14px; }.landing-trust-logos span:nth-child(4), .landing-trust-logos span:nth-child(5) { grid-column: span 1; }.landing-benefit { gap: 28px; padding: 57px 19px 63px; }.benefit-copy h2, .landing-section-heading h2 { font-size: 31px; }.benefit-visual { padding-right: 9px; }.benefit-window { min-height: 236px; padding: 11px; }.benefit-revenue { right: -1px; min-width: 145px; padding: 11px; }.benefit-revenue strong { font-size: 19px; }.benefit-metrics { gap: 5px; }.benefit-metrics > span { gap: 4px; padding: 7px 5px; font-size: 7px; }.mini-ring { width: 17px; height: 17px; border-width: 2px; }.benefit-wave { height: 55px; }.landing-features, .landing-testimonials, .landing-pricing { padding: 59px 18px; }.landing-section-heading { margin-bottom: 27px; }.landing-section-heading > p { font-size: 11px; }.landing-feature-grid, .landing-quote-grid, .landing-pricing-grid { grid-template-columns: 1fr; gap: 10px; }.landing-feature-card { min-height: auto; padding: 18px; }.landing-feature-card p { min-height: 0; }.landing-feature-card a { margin-top: 11px; }.landing-feature-note { align-items: flex-start; line-height: 1.6; }.landing-quote-grid article { min-height: 0; }.landing-plan { min-height: 0; padding: 22px; }.landing-plan > p { min-height: 0; }.landing-pricing .landing-section-heading { margin-bottom: 30px; }.pricing-footnote { line-height: 1.6; }.landing-contact { gap: 27px; padding: 57px 19px; }.contact-copy h2 { font-size: 39px; }.landing-contact-form { padding: 18px; }.landing-footer { grid-template-columns: 1fr auto; gap: 10px; padding: 22px 18px 17px; }.landing-footer > p { grid-column: 1 / -1; grid-row: 2; }.landing-footer nav { grid-column: 1 / -1; grid-row: 3; justify-content: flex-start; gap: 18px; padding: 9px 0; }.landing-footer > small { grid-row: 4; }
 }
+
+/* Make landing-page copy comfortable to read at regular zoom. */
+.landing-nav > a, .landing-login { font-size: 14px; }
+.landing-header .button, .landing-nav-mobile-actions .button { font-size: 13px; }
+.landing-eyebrow { font-size: 11px; }
+.landing-hero-copy > p, .contact-copy > p { font-size: 16px; }
+.landing-text-link { font-size: 13px; }
+.landing-proof strong { font-size: 12px; }.landing-proof small { font-size: 11px; }
+.landing-trust > p { font-size: 10px; }
+.benefit-copy > p, .landing-section-heading > p { font-size: 14px; }
+.benefit-copy .button { font-size: 12px; }
+.landing-feature-card h3, .landing-quote-grid h3 { font-size: 15px; }
+.landing-feature-card p, .landing-quote-grid p { font-size: 12px; }
+.landing-feature-card a { font-size: 11px; }
+.landing-feature-note { font-size: 11px; }
+.pricing-demo-label { font-size: 11px; }
+.plan-name { font-size: 12px; }
+.landing-plan > p { font-size: 12px; }
+.plan-price span { font-size: 11px; }
+.landing-plan > .button { font-size: 12px; }
+.plan-includes { font-size: 9px; }
+.landing-plan li { font-size: 11px; }
+.pricing-footnote { font-size: 11px; }
+.contact-copy > a { font-size: 13px; }
+.contact-demo-label { font-size: 10px; }
+.contact-form-heading small { font-size: 11px; }
+.landing-contact-form label { font-size: 11px; }
+.landing-contact-form input, .landing-contact-form textarea { font-size: 12px; }
+.landing-contact-form .button { font-size: 12px; }
+.contact-form-note { font-size: 10px; }
+.landing-footer > p, .landing-footer nav a, .landing-footer nav button { font-size: 11px; }
+.landing-footer > small { font-size: 10px; }
+
+@media (max-width: 520px) {
+  .landing-hero-copy > p, .contact-copy > p { font-size: 15px; }
+  .landing-section-heading > p, .benefit-copy > p { font-size: 13px; }
+  .landing-feature-card p, .landing-quote-grid p { font-size: 13px; }
+  .landing-feature-note { font-size: 12px; }
+  .landing-plan > p, .landing-plan li { font-size: 12px; }
+  .landing-trust > p { font-size: 9px; }
+  .landing-footer > p { font-size: 12px; }
+}
